@@ -6,6 +6,9 @@ return array(
         'urlManager' => array(
             'urlFormat' => 'path',
             'rules' => array(
+                'gii' => 'gii',
+                'gii/<controller:\w+>' => 'gii/<controller>',
+                'gii/<controller:\w+>/<action:\w+>' => 'gii/<controller>/<action>',
                 '<module>' => '<module>/index',
                 '<module>/<controller>' => '<module>/<controller>',
                 '<module>/<controller>/<action>' => '<module>/<controller>/<action>',
@@ -18,5 +21,9 @@ return array(
     ),
     'modules' => array(
         'admin',
+        'gii' => array(
+            'class' => 'system.gii.GiiModule',
+            'password' => '123',
+        ),
     ),
 );
