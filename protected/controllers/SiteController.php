@@ -19,4 +19,10 @@ class SiteController extends Controller
         $this->layout = 'login';
         $this->render('login', array('model' => $model));
     }
+
+    public function actionLogout()
+    {
+        Yii::app()->user->logout();
+        $this->redirect(array('site/login'));
+    }
 }

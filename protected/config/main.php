@@ -2,9 +2,18 @@
 
 return array(
     'defaultController' => 'index',
+    'language'=>'ru',
+    'sourceLanguage'=>'ru',
+
+    'import'=>array(
+        'application.models.*',
+        'application.components.*',
+    ),
+
     'components' => array(
         'urlManager' => array(
             'urlFormat' => 'path',
+            'showScriptName'=>false,
             'rules' => array(
                 'gii' => 'gii',
                 'gii/<controller:\w+>' => 'gii/<controller>',
@@ -18,7 +27,16 @@ return array(
                 '<controller>/<action>/<id>' => '<controller>/<action>',
             ),
         ),
+
+        'db' => array(
+            'connectionString' => 'mysql:host=localhost;dbname=igosja_photo',
+            'emulatePrepare' => true,
+            'username' => 'root',
+            'password' => '',
+            'charset' => 'utf8',
+        ),
     ),
+
     'modules' => array(
         'admin',
         'gii' => array(

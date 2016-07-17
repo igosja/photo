@@ -1,11 +1,11 @@
 <?php
 
-class IndexController extends CController
+class IndexController extends Controller
 {
-    public $defaultAction = 'index';
-
     public function actionIndex()
     {
-        $this->render('index');
+        $o_mainpage = MainPage::model()->findByPk(1);
+        $this->setSEO($o_mainpage);
+        $this->render('index', array('o_mainpage' => $o_mainpage));
     }
 }

@@ -8,14 +8,10 @@ class AdminModule extends CWebModule
             'admin.models.*',
             'admin.components.*',
         ));
-        $this->layoutPath = Yii::getPathOfAlias('admin.views.layouts');
-        $this->layout = 'main';
     }
 
     public function beforeControllerAction($controller, $action)
     {
-        $this->layoutPath = Yii::getPathOfAlias('admin.views.layouts');
-        $this->layout = 'main';
         if (parent::beforeControllerAction($controller, $action)) {
             return true;
         } else {
