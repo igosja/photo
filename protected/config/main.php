@@ -4,6 +4,7 @@ return array(
     'defaultController' => 'index',
     'language'=>'ru',
     'sourceLanguage'=>'ru',
+    'timeZone' => 'UTC',
 
     'import'=>array(
         'application.models.*',
