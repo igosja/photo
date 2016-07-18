@@ -13,7 +13,7 @@
                     </div>
                     <div class="col-xs-9 text-right">
                         <div class="huge">123</div>
-                        <div>Свободные команды</div>
+                        <div>qwer</div>
                     </div>
                 </div>
             </div>
@@ -35,7 +35,7 @@
                     </div>
                     <div class="col-xs-9 text-right">
                         <div class="huge">321</div>
-                        <div>Менеджеры с командами</div>
+                        <div>asdf</div>
                     </div>
                 </div>
             </div>
@@ -57,7 +57,7 @@
                     </div>
                     <div class="col-xs-9 text-right">
                         <div class="huge">951</div>
-                        <div>События матча</div>
+                        <div>zxcv</div>
                     </div>
                 </div>
             </div>
