@@ -10,7 +10,6 @@ class Controller extends CController
     public $breadcrumbs = array();
     public $a_social;
     public $contacts;
-    public $defaultAction = 'index';
 
     public function init()
     {

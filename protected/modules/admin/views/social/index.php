@@ -19,7 +19,7 @@
                 <?php foreach ($model as $item) { ?>
                     <tr class="sorter" data-id="<?= $item->id; ?>" data-controller="<?= $this->uniqueid; ?>">
                         <td><?= $item->name; ?></td>
-                        <td><?= $item->link; ?></td>
+                        <td><?= $item->url; ?></td>
                         <td class="text-center">
                             <?= CHtml::link(
                                 '<i class="fa fa-power-off"></i>',
