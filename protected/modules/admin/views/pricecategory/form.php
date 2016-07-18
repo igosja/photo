@@ -17,20 +17,20 @@
         <?php $form = $this->beginWidget('CActiveForm', array(
             'id' => 'pricecategory-form',
             'enableAjaxValidation' => false,
-            'enableClientValidation'=>true,
+            'enableClientValidation' => true,
         )); ?>
-            <table class="table table-striped table-bordered table-hover">
-                <tr>
-                    <td class="col-lg-3"><?= $form->labelEx($model, 'name'); ?></td>
-                    <td>
-                        <?= $form->textField($model, 'name', array('class' => 'form-control')); ?>
-                        <?= $form->error($model, 'name'); ?>
-                    </td>
-                </tr>
-            </table>
-            <p class="text-center">
-                <?= CHtml::submitButton('Сохранить', array('class' => 'btn btn-default text-center')); ?>
-            </p>
+        <table class="table table-striped table-bordered table-hover">
+            <tr>
+                <td class="col-lg-3"><?= $form->labelEx($model, 'name'); ?></td>
+                <td>
+                    <?= $form->textField($model, 'name', array('class' => 'form-control')); ?>
+                    <?= $form->error($model, 'name'); ?>
+                </td>
+            </tr>
+        </table>
+        <p class="text-center">
+            <?= CHtml::submitButton('Сохранить', array('class' => 'btn btn-default text-center')); ?>
+        </p>
         <?php $this->endWidget(); ?>
     </div>
 </div>

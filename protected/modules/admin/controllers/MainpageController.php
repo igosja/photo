@@ -12,11 +12,11 @@ class MainpageController extends AController
 
     public function actionUpdate($id)
     {
-        $id = (int) $id;
+        $id = (int)$id;
         $model = $this->getModel()->findByPk($id);
-        if($data = Yii::app()->request->getPost('MainPage')) {
+        if ($data = Yii::app()->request->getPost('MainPage')) {
             $model->attributes = $data;
-            if($model->save()) {
+            if ($model->save()) {
                 $this->redirect(array('index'));
             }
         }

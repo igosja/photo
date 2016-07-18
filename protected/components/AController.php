@@ -23,12 +23,12 @@ class AController extends CController
             ),
         );
     }
-    
+
     public function init()
     {
         $clientScript = Yii::app()->getClientScript();
         $clientScript->scriptMap = array(
-           'jquery.js'=>false,
+            'jquery.js' => false,
         );
     }
 }

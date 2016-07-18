@@ -12,7 +12,7 @@ class SocialController extends AController
 
     public function actionView($id)
     {
-        $id = (int) $id;
+        $id = (int)$id;
         $model = $this->getModel()->findByPk($id);
         if (null === $model) {
             throw new CHttpException(404, 'Страница не найдена.');
@@ -23,14 +23,14 @@ class SocialController extends AController
 
     public function actionUpdate($id)
     {
-        $id = (int) $id;
+        $id = (int)$id;
         $model = $this->getModel()->findByPk($id);
         if (null === $model) {
             throw new CHttpException(404, 'Страница не найдена.');
         }
-        if($data = Yii::app()->request->getPost('Social')) {
+        if ($data = Yii::app()->request->getPost('Social')) {
             $model->attributes = $data;
-            if($model->save()) {
+            if ($model->save()) {
                 $this->redirect(array('view', 'id' => $id));
             }
         }
@@ -39,7 +39,7 @@ class SocialController extends AController
 
     public function actionStatus($id)
     {
-        $id = (int) $id;
+        $id = (int)$id;
         $model = $this->getModel()->findByPk($id);
         if (null === $model) {
             throw new CHttpException(404, 'Страница не найдена.');
@@ -50,7 +50,7 @@ class SocialController extends AController
 
     public function actionOrder($id)
     {
-        $id = (int) $id;
+        $id = (int)$id;
         $order_old = $_GET['order_old'];
         $order_new = $_GET['order_new'];
         $this->getModel()->updateByPk($id, array('order' => $order_new));

@@ -54,7 +54,7 @@
                     <?php if (isset($model->image->url)) { ?>
                         <div class="col-lg-6">
                             <a href="javascript:;" class="thumbnail">
-                                <img src="<?=$model->image->url?>" />
+                                <img src="<?= $model->image->url ?>"/>
                             </a>
                         </div>
                     <?php } ?>

@@ -13,7 +13,7 @@ class PricecategoryController extends AController
     public function actionUpdate($id)
     {
         $this->h1 = 'Редактирование категории';
-        $id = (int) $id;
+        $id = (int)$id;
         if (0 == $id) {
             $model = $this->getModel();
         } else {
@@ -24,7 +24,7 @@ class PricecategoryController extends AController
         }
         if ($data = Yii::app()->request->getPost('PriceCategory')) {
             $model->attributes = $data;
-            if($model->save()) {
+            if ($model->save()) {
                 $this->redirect(array('view', 'id' => $model->id));
             }
         }
@@ -33,7 +33,7 @@ class PricecategoryController extends AController
 
     public function actionView($id)
     {
-        $id = (int) $id;
+        $id = (int)$id;
         $model = $this->getModel()->findByPk($id);
         if (null === $model) {
             throw new CHttpException(404, 'Страница не найдена.');
@@ -52,18 +52,18 @@ class PricecategoryController extends AController
 
     public function actionStatus($id)
     {
-        $id = (int) $id;
+        $id = (int)$id;
         $model = $this->getModel()->findByPk($id);
         if (null === $model) {
             throw new CHttpException(404, 'Страница не найдена.');
         }
-        $model = $this->getModel()->updateByPk($id, array('status' => 1 - $model->status));
+        $this->getModel()->updateByPk($id, array('status' => 1 - $model->status));
         $this->redirect(array('index'));
     }
 
     public function actionOrder($id)
     {
-        $id = (int) $id;
+        $id = (int)$id;
         $order_old = $_GET['order_old'];
         $order_new = $_GET['order_new'];
         $this->getModel()->updateByPk($id, array('order' => $order_new));

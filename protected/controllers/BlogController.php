@@ -8,7 +8,7 @@ class BlogController extends Controller
         $this->setSEO($o_blog);
         $this->breadcrumbs[] = array('url' => 'index/index', 'text' => 'Главная');
         $this->breadcrumbs[] = array('text' => 'Блог');
-        $a_blog = Blog::model()->findAllByAttributes(array('status' => 1), array('order'=>'id DESC', 'limit' => 3));
+        $a_blog = Blog::model()->findAllByAttributes(array('status' => 1), array('order' => 'id DESC', 'limit' => 3));
         $this->render('index', array('a_blog' => $a_blog));
     }
 

@@ -1,8 +1,8 @@
 <html>
 <head>
-<title><?= $this->seo_title; ?></title>
-<meta name="description" content="<?= $this->seo_description; ?>">
-<meta name="keywords" content="<?= $this->seo_keywords; ?>">
+    <title><?= $this->seo_title; ?></title>
+    <meta name="description" content="<?= $this->seo_description; ?>">
+    <meta name="keywords" content="<?= $this->seo_keywords; ?>">
 </head>
 <body>
 Красота спасет мир!
@@ -19,9 +19,9 @@
 <?= $content; ?>
 <br/>
 <?php foreach ($this->a_social as $item) { ?>
-<a href="<?= $item->url; ?>" target="_blank">
-<?= $item->name; ?>
-</a>
+    <a href="<?= $item->url; ?>" target="_blank">
+        <?= $item->name; ?>
+    </a>
 <?php } ?>
 <br/>
 <?= $this->contacts->lifecell; ?>

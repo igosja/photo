@@ -1,5 +1,5 @@
 <?= $this->renderPartial('/include/bread'); ?>
-<br/>
+    <br/>
 <?php foreach ($a_blog as $item) { ?>
     <?php if (isset($item->image->url)) { ?>
         <img src="<?= $item->image->url; ?>">

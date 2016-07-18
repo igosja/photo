@@ -12,11 +12,11 @@ class PricepageController extends AController
 
     public function actionUpdate($id)
     {
-        $id = (int) $id;
+        $id = (int)$id;
         $model = $this->getModel()->findByPk($id);
-        if($data = Yii::app()->request->getPost('PricePage')) {
+        if ($data = Yii::app()->request->getPost('PricePage')) {
             $model->attributes = $data;
-            if($model->save()) {
+            if ($model->save()) {
                 $this->redirect(array('index'));
             }
         }

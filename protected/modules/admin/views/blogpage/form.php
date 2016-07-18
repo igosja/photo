@@ -13,12 +13,12 @@
         <?php $form = $this->beginWidget('CActiveForm', array(
             'id' => 'blogpage-form',
             'enableAjaxValidation' => false,
-            'enableClientValidation'=>true,
+            'enableClientValidation' => true,
         )); ?>
-            <?=$this->renderPartial('/include/seo-form', array('model' => $model, 'form' => $form, 'class' => 'in active'))?>
-            <p class="text-center">
-                <?= CHtml::submitButton('Сохранить', array('class' => 'btn btn-default text-center')); ?>
-            </p>
+        <?= $this->renderPartial('/include/seo-form', array('model' => $model, 'form' => $form, 'class' => 'in active')) ?>
+        <p class="text-center">
+            <?= CHtml::submitButton('Сохранить', array('class' => 'btn btn-default text-center')); ?>
+        </p>
         <?php $this->endWidget(); ?>
     </div>
 </div>

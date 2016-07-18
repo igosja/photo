@@ -3,7 +3,7 @@
 class BlogController extends AController
 {
     public $h1 = 'Публикации';
-    
+
     public function actionIndex()
     {
         $criteria = new CDbCriteria();
@@ -18,7 +18,7 @@ class BlogController extends AController
         }
         $model = $this->getModel();
         foreach ($search as $key => $value) {
-            $criteria->addSearchCondition($key, '%'. $value .'%', false);
+            $criteria->addSearchCondition($key, '%' . $value . '%', false);
         }
         $model = $model->findAll($criteria);
         $this->render('index', array('model' => $model, 'pages' => $pages));
@@ -27,7 +27,7 @@ class BlogController extends AController
     public function actionUpdate($id)
     {
         $this->h1 = 'Редактирование публикации';
-        $id = (int) $id;
+        $id = (int)$id;
         if (0 == $id) {
             $model = $this->getModel();
         } else {
@@ -41,7 +41,7 @@ class BlogController extends AController
             if (0 == $id) {
                 $model->date = time();
             }
-            if($model->save()) {
+            if ($model->save()) {
                 $model = $this->getModel()->findByPk($model->id);
                 if (empty($model->url)) {
                     $model->url = $model->id . '-' . str_replace($this->rus, $this->lat, $model->name);
@@ -56,7 +56,7 @@ class BlogController extends AController
 
     public function actionView($id)
     {
-        $id = (int) $id;
+        $id = (int)$id;
         $model = $this->getModel()->findByPk($id);
         if (null === $model) {
             throw new CHttpException(404, 'Страница не найдена.');
@@ -67,7 +67,7 @@ class BlogController extends AController
 
     public function actionStatus($id)
     {
-        $id = (int) $id;
+        $id = (int)$id;
         $model = $this->getModel()->findByPk($id);
         if (null === $model) {
             throw new CHttpException(404, 'Страница не найдена.');

@@ -12,7 +12,7 @@ class Contacts extends CActiveRecord
         return array(
             array('lifecell, kyivstar, email', 'required'),
             array('email', 'email'),
-            array('seo_title', 'length', 'max'=>255),
+            array('seo_title', 'length', 'max' => 255),
             array('seo_description, seo_keywords', 'safe'),
         );
     }
@@ -29,7 +29,7 @@ class Contacts extends CActiveRecord
         );
     }
 
-    public static function model($className=__CLASS__)
+    public static function model($className = __CLASS__)
     {
         return parent::model($className);
     }

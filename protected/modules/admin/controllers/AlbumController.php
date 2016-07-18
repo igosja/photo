@@ -13,7 +13,7 @@ class AlbumController extends AController
     public function actionUpdate($id)
     {
         $this->h1 = 'Редактирование прайса';
-        $id = (int) $id;
+        $id = (int)$id;
         if (0 == $id) {
             $model = $this->getModel();
         } else {
@@ -24,7 +24,7 @@ class AlbumController extends AController
         }
         if ($data = Yii::app()->request->getPost('Album')) {
             $model->attributes = $data;
-            if($model->save()) {
+            if ($model->save()) {
                 $model = $this->getModel()->findByPk($model->id);
                 if (empty($model->url)) {
                     $model->url = $model->id . '-' . str_replace($this->rus, $this->lat, $model->name);
@@ -33,14 +33,14 @@ class AlbumController extends AController
                 $this->uploadImage($model->id);
                 if ($data = Yii::app()->request->getPost('alt')) {
                     foreach ($data as $key => $value) {
-                        $id = (int) $key;
+                        $id = (int)$key;
                         $photo = Photo::model()->findByPk($id);
                         $photo->alt = $value;
                         $photo->save();
                     }
                 }
                 if ($data = Yii::app()->request->getPost('photo-main')) {
-                    $id = (int) $data;
+                    $id = (int)$data;
                     Photo::model()->updateAll(array('main' => 0), 'album_id=' . $model->id);
                     Photo::model()->updateByPk($id, array('main' => 1));
                 }
@@ -52,7 +52,7 @@ class AlbumController extends AController
 
     public function actionView($id)
     {
-        $id = (int) $id;
+        $id = (int)$id;
         $model = $this->getModel()->findByPk($id);
         if (null === $model) {
             throw new CHttpException(404, 'Страница не найдена.');
@@ -63,7 +63,7 @@ class AlbumController extends AController
 
     public function actionDelete($id)
     {
-        $id = (int) $id;
+        $id = (int)$id;
         $a_photo = Photo::model()->findAllByAttributes(array('album_id' => $id));
         foreach ($a_photo as $item) {
             Photo::model()->deleteByPk($item->id);
@@ -79,7 +79,7 @@ class AlbumController extends AController
 
     public function actionImage($id)
     {
-        $id = (int) $id;
+        $id = (int)$id;
         $photo = Photo::model()->findByPk($id);
         if (null === $photo) {
             $this->redirect($_SERVER['HTTP_REFERER']);
@@ -96,7 +96,7 @@ class AlbumController extends AController
 
     public function actionStatus($id)
     {
-        $id = (int) $id;
+        $id = (int)$id;
         $model = $this->getModel()->findByPk($id);
         if (null === $model) {
             throw new CHttpException(404, 'Страница не найдена.');
@@ -107,7 +107,7 @@ class AlbumController extends AController
 
     public function actionOrder($id)
     {
-        $id = (int) $id;
+        $id = (int)$id;
         $order_old = $_GET['order_old'];
         $order_new = $_GET['order_new'];
         $this->getModel()->updateByPk($id, array('order' => $order_new));
@@ -130,7 +130,7 @@ class AlbumController extends AController
     {
         if (isset($_FILES['image']['name'][0]) && !empty($_FILES['image']['name'][0])) {
             $image = $_FILES['image'];
-            for ($i=0, $count_image = count($image['name']); $i<$count_image; $i++) {
+            for ($i = 0, $count_image = count($image['name']); $i < $count_image; $i++) {
                 $ext = $image['name'][$i];
                 $ext = explode('.', $ext);
                 $ext = end($ext);

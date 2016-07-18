@@ -12,11 +12,11 @@ class ContactsController extends AController
 
     public function actionUpdate($id)
     {
-        $id = (int) $id;
+        $id = (int)$id;
         $model = $this->getModel()->findByPk($id);
-        if($data = Yii::app()->request->getPost('Contacts')) {
+        if ($data = Yii::app()->request->getPost('Contacts')) {
             $model->attributes = $data;
-            if($model->save()) {
+            if ($model->save()) {
                 $this->redirect(array('index'));
             }
         }

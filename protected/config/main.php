@@ -2,11 +2,11 @@
 
 return array(
     'defaultController' => 'index',
-    'language'=>'ru',
-    'sourceLanguage'=>'ru',
+    'language' => 'ru',
+    'sourceLanguage' => 'ru',
     'timeZone' => 'UTC',
 
-    'import'=>array(
+    'import' => array(
         'application.models.*',
         'application.components.*',
     ),
@@ -14,7 +14,7 @@ return array(
     'components' => array(
         'urlManager' => array(
             'urlFormat' => 'path',
-            'showScriptName'=>false,
+            'showScriptName' => false,
             'rules' => array(
                 'gii' => 'gii',
                 'gii/<controller:\w+>' => 'gii/<controller>',
