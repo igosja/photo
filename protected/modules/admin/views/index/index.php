@@ -17,7 +17,7 @@
                     </div>
                 </div>
             </div>
-            <a href="team_free_list.php">
+            <a href="javascript:;">
                 <div class="panel-footer">
                     <span class="pull-left">Подробнее</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -39,7 +39,7 @@
                     </div>
                 </div>
             </div>
-            <a href="team_user_list.php">
+            <a href="javascript:;">
                 <div class="panel-footer">
                     <span class="pull-left">Подробнее</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -61,7 +61,7 @@
                     </div>
                 </div>
             </div>
-            <a href="eventerror_list.php">
+            <a href="javascript:;">
                 <div class="panel-footer">
                     <span class="pull-left">Подробнее</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
