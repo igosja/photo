@@ -6,7 +6,6 @@ class BlogController extends AController
     
     public function actionIndex()
     {
-        $attributes = array();
         $criteria = new CDbCriteria();
         $criteria->order = 'id DESC';
         $count = $this->getModel()->count($criteria);

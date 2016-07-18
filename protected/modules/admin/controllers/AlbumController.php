@@ -31,6 +31,19 @@ class AlbumController extends AController
                     $model->save();
                 }
                 $this->uploadImage($model->id);
+                if ($data = Yii::app()->request->getPost('alt')) {
+                    foreach ($data as $key => $value) {
+                        $id = (int) $key;
+                        $photo = Photo::model()->findByPk($id);
+                        $photo->alt = $value;
+                        $photo->save();
+                    }
+                }
+                if ($data = Yii::app()->request->getPost('photo-main')) {
+                    $id = (int) $data;
+                    Photo::model()->updateAll(array('main' => 0), 'album_id=' . $model->id);
+                    Photo::model()->updateByPk($id, array('main' => 1));
+                }
                 $this->redirect(array('view', 'id' => $model->id));
             }
         }
@@ -50,8 +63,35 @@ class AlbumController extends AController
 
     public function actionDelete($id)
     {
-        $model = $this->getModel()->deleteByPk($id);
+        $id = (int) $id;
+        $a_photo = Photo::model()->findAllByAttributes(array('album_id' => $id));
+        foreach ($a_photo as $item) {
+            Photo::model()->deleteByPk($item->id);
+            $o_image = Image::model()->findByPk($item->image_id);
+            if (file_exists($_SERVER['DOCUMENT_ROOT'] . $o_image->url)) {
+                unlink($_SERVER['DOCUMENT_ROOT'] . $o_image->url);
+            }
+            Image::model()->deleteByPk($item->image_id);
+        }
+        $this->getModel()->deleteByPk($id);
         $this->redirect(array('index'));
+    }
+
+    public function actionImage($id)
+    {
+        $id = (int) $id;
+        $photo = Photo::model()->findByPk($id);
+        if (null === $photo) {
+            $this->redirect($_SERVER['HTTP_REFERER']);
+            exit;
+        }
+        Photo::model()->deleteByPk($id);
+        $o_image = Image::model()->findByPk($photo->image_id);
+        if (file_exists($_SERVER['DOCUMENT_ROOT'] . $o_image->url)) {
+            unlink($_SERVER['DOCUMENT_ROOT'] . $o_image->url);
+        }
+        Image::model()->deleteByPk($id);
+        $this->redirect($_SERVER['HTTP_REFERER']);
     }
 
     public function actionStatus($id)
@@ -61,7 +101,7 @@ class AlbumController extends AController
         if (null === $model) {
             throw new CHttpException(404, 'Страница не найдена.');
         }
-        $model = $this->getModel()->updateByPk($id, array('status' => 1 - $model->status));
+        $this->getModel()->updateByPk($id, array('status' => 1 - $model->status));
         $this->redirect(array('index'));
     }
 

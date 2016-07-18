@@ -32,12 +32,13 @@ class Album extends CActiveRecord
     public function relations()
     {
         return array(
-            'photo' => array(self::HAS_MANY, 'Photo', array('album_id' => 'id')),
+            'photo' => array(self::HAS_MANY, 'Photo', array('album_id' => 'id'), 'order' => '`order`'),
             'category' => array(self::HAS_ONE, 'PhotoCategory', array('id' => 'photocategory_id')),
+            'main' => array(self::HAS_ONE, 'Photo', array('album_id' => 'id'), 'condition' => 'main=1'),
         );
     }
 
-    public static function model($className=__CLASS__)
+    public static function model($className = __CLASS__)
     {
         return parent::model($className);
     }

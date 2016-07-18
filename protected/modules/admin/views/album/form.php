@@ -63,6 +63,41 @@
                 </div>
                 <?=$this->renderPartial('/include/seo-form', array('model' => $model, 'form' => $form))?>
             </div>
+            <table class="table table-striped table-bordered table-hover" id="sort-table">
+                <thead>
+                    <tr>
+                        <th class="col-lg-1">
+                            Обложка
+                        </th>
+                        <th class="col-lg-6">
+                            Фото
+                        </th>
+                        <th>
+                            Alt
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($model->photo as $item) { ?>
+                        <tr class="sorter" data-id="<?= $item->id; ?>" data-controller="admin/photo" data-album="<?= $model->id; ?>">
+                            <td>
+                                <input type="radio" name="photo-main" value="<?= $item->id; ?>" <?php if (1 == $item->main) { ?>checked<?php } ?>>
+                            </td>
+                            <td class="col-lg-6">
+                                <div class="col-lg-6">
+                                    <a href="javascript:;" class="thumbnail">
+                                        <img src="<?= $item->image->url; ?>" />
+                                    </a>
+                                </div>
+                                <?= CHtml::link('<i class="fa fa-times"></i>', array('image', 'id' => $item->id)); ?>
+                            </td>
+                            <td>
+                                <input type="text" value="<?= $item->alt; ?>" name="alt[<?= $item->id; ?>]" class="form-control">
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
             <p class="text-center">
                 <?= CHtml::submitButton('Сохранить', array('class' => 'btn btn-default text-center')); ?>
             </p>

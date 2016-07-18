@@ -39,29 +39,33 @@
                 </td>
             </tr>
         </table>
-        <table class="table">
-            <tr>
-                <th class="col-lg-6">
-                    Фото
-                </th>
-                <th>
-                    Alt
-                </th>
-            </tr>
-            <?php foreach ($model->photo as $item) { ?>
+        <table class="table table-striped table-bordered table-hover" id="sort-table">
+            <thead>
                 <tr>
-                    <td class="col-lg-6">
-                        <div class="col-lg-6">
-                            <a href="javascript:;" class="thumbnail">
-                                <img src="<?= $item->image->url; ?>" />
-                            </a>
-                        </div>
-                    </td>
-                    <td>
-                        <?= $item->alt; ?>
-                    </td>
+                    <th class="col-lg-6">
+                        Фото
+                    </th>
+                    <th>
+                        Alt
+                    </th>
                 </tr>
-            <?php } ?>
+            </thead>
+            <tbody>
+                <?php foreach ($model->photo as $item) { ?>
+                    <tr class="sorter <?php if (1 == $item->main) { ?>success<?php } ?>" data-id="<?= $item->id; ?>" data-controller="admin/photo" data-album="<?= $model->id; ?>">
+                        <td class="col-lg-6">
+                            <div class="col-lg-6">
+                                <a href="javascript:;" class="thumbnail">
+                                    <img src="<?= $item->image->url; ?>" />
+                                </a>
+                            </div>
+                        </td>
+                        <td>
+                            <?= $item->alt; ?>
+                        </td>
+                    </tr>
+                <?php } ?>
+            </tbody>
         </table>
     </div>
 </div>
