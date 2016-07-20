@@ -62,7 +62,7 @@ class PhotocategoryController extends AController
         if (null === $model) {
             throw new CHttpException(404, 'Страница не найдена.');
         }
-        $model = $this->getModel()->updateByPk($id, array('status' => 1 - $model->status));
+        $this->getModel()->updateByPk($id, array('status' => 1 - $model->status));
         $this->redirect(array('index'));
     }
 

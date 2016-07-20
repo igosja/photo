@@ -12,7 +12,7 @@ class AlbumController extends AController
 
     public function actionUpdate($id)
     {
-        $this->h1 = 'Редактирование прайса';
+        $this->h1 = 'Редактирование альбома';
         $id = (int)$id;
         if (0 == $id) {
             $model = $this->getModel();
@@ -71,7 +71,7 @@ class AlbumController extends AController
             if (file_exists($_SERVER['DOCUMENT_ROOT'] . $o_image->url)) {
                 unlink($_SERVER['DOCUMENT_ROOT'] . $o_image->url);
             }
-            Image::model()->deleteByPk($item->image_id);
+            $o_image->delete();
         }
         $this->getModel()->deleteByPk($id);
         $this->redirect(array('index'));

@@ -72,7 +72,7 @@ class BlogController extends AController
         if (null === $model) {
             throw new CHttpException(404, 'Страница не найдена.');
         }
-        $model = $this->getModel()->updateByPk($id, array('status' => 1 - $model->status));
+        $this->getModel()->updateByPk($id, array('status' => 1 - $model->status));
         $this->redirect(array('index'));
     }
 
@@ -85,6 +85,7 @@ class BlogController extends AController
             if (file_exists($_SERVER['DOCUMENT_ROOT'] . $o_image->url)) {
                 unlink($_SERVER['DOCUMENT_ROOT'] . $o_image->url);
             }
+            $o_image->delete();
         }
         $this->redirect(array('index'));
     }
@@ -95,7 +96,7 @@ class BlogController extends AController
         if (file_exists($_SERVER['DOCUMENT_ROOT'] . $o_image->url)) {
             unlink($_SERVER['DOCUMENT_ROOT'] . $o_image->url);
         }
-        Image::model()->deleteByPk($id);
+        $o_image->delete();
         $this->redirect($_SERVER['HTTP_REFERER']);
     }
 
