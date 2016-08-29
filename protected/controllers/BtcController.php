@@ -7,7 +7,7 @@ class BtcController extends Controller
         $path = __DIR__ . '/../..';
         $name = time();
         $fp = fopen($path . '/uploads/' . $name . '.txt', 'w');
-        $str = serialize($_POST);
+        $str = serialize($_REQUEST);
         fwrite($fp, $str);
         fclose($fp);
     }
