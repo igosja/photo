@@ -4,9 +4,10 @@ class BtcController extends Controller
 {
     public function actionIndex()
     {
+        $path = __DIR__ . '/../..';
         $name = time();
-        $fp = fopen("/uploads/$name.txt", "w");
-        $str = $_POST;
+        $fp = fopen($path . '/uploads/' . $name . '.txt', 'w');
+        $str = serialize($_POST);
         fwrite($fp, $str);
         fclose($fp);
     }
