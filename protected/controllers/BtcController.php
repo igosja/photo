@@ -4,9 +4,6 @@ class BtcController extends Controller
 {
     public function actionIndex()
     {
-        print '<pre>';
-        print_r(1);
-        exit;
         $url = "http://dev.cp.linksmanagement.com/view/bitcoin_ipn";
 
         $content = '{
