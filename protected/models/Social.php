@@ -10,17 +10,18 @@ class Social extends CActiveRecord
     public function rules()
     {
         return array(
-            array('url', 'length', 'max' => 255),
+            array('css, url', 'length', 'max' => 255),
             array('url', 'url'),
-            array('url', 'required'),
+            array('css, url', 'required'),
         );
     }
 
     public function attributeLabels()
     {
         return array(
-            'url' => 'Ссылка',
+            'css' => 'Сss класс',
             'name' => 'Название',
+            'url' => 'Ссылка',
         );
     }
 

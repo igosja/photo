@@ -23,6 +23,13 @@
             <div class="tab-pane fade in active" id="main">
                 <table class="table table-striped table-bordered table-hover">
                     <tr>
+                        <td class="col-lg-3"><?= $form->labelEx($model, 'title'); ?></td>
+                        <td>
+                            <?= $form->textField($model, 'title', array('class' => 'form-control')); ?>
+                            <?= $form->error($model, 'title'); ?>
+                        </td>
+                    </tr>
+                    <tr>
                         <td class="col-lg-3"><?= $form->labelEx($model, 'text'); ?></td>
                         <td>
                             <?= $form->textArea($model, 'text', array('class' => 'form-control', 'rows' => 10)); ?>

@@ -10,8 +10,8 @@ class MainPage extends CActiveRecord
     public function rules()
     {
         return array(
-            array('text', 'required'),
-            array('seo_title', 'length', 'max' => 255),
+            array('text, title', 'required'),
+            array('title, seo_title', 'length', 'max' => 255),
             array('seo_description, seo_keywords', 'safe'),
         );
     }
@@ -20,6 +20,7 @@ class MainPage extends CActiveRecord
     {
         return array(
             'text' => 'Текст',
+            'title' => 'Заголовок',
             'seo_description' => 'SEO description',
             'seo_keywords' => 'SEO keywords',
             'seo_title' => 'SEO title',

@@ -24,6 +24,13 @@
                 </td>
             </tr>
             <tr>
+                <td class="col-lg-3"><?= $form->labelEx($model, 'css'); ?></td>
+                <td>
+                    <?= $form->textField($model, 'css', array('class' => 'form-control')); ?>
+                    <?= $form->error($model, 'css'); ?>
+                </td>
+            </tr>
+            <tr>
                 <td class="col-lg-3"><?= $form->labelEx($model, 'url'); ?></td>
                 <td>
                     <?= $form->urlField($model, 'url', array('class' => 'form-control')); ?>

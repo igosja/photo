@@ -13,7 +13,15 @@
         <table class="table">
             <tr>
                 <td class="col-lg-4">
-                    Текст
+                    <?= $model->getAttributeLabel('title'); ?>
+                </td>
+                <td>
+                    <?= nl2br($model->title); ?>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-lg-4">
+                    <?= $model->getAttributeLabel('text'); ?>
                 </td>
                 <td>
                     <?= nl2br($model->text); ?>
@@ -21,7 +29,7 @@
             </tr>
             <tr>
                 <td>
-                    SEO title
+                    <?= $model->getAttributeLabel('seo_title'); ?>
                 </td>
                 <td>
                     <?= $model->seo_title; ?>
@@ -29,7 +37,7 @@
             </tr>
             <tr>
                 <td>
-                    SEO description
+                    <?= $model->getAttributeLabel('seo_description'); ?>
                 </td>
                 <td>
                     <?= $model->seo_description; ?>
@@ -37,7 +45,7 @@
             </tr>
             <tr>
                 <td>
-                    SEO keywords
+                    <?= $model->getAttributeLabel('seo_keywords'); ?>
                 </td>
                 <td>
                     <?= $model->seo_keywords; ?>
