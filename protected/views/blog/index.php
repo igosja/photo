@@ -6,10 +6,7 @@
             <?php foreach ($a_blog as $item) { ?>
                 <div class="blog-item">
                     <div class="blog-item__soc">
-                        <a href="" class="blog-item__soc__item blog-item__soc__item_fb"><span></span></a>
-                        <a href="" class="blog-item__soc__item blog-item__soc__item_ins"><span></span></a>
-                        <a href="" class="blog-item__soc__item blog-item__soc__item_vk"><span></span></a>
-                        <a href="" class="blog-item__soc__item blog-item__soc__item_pin"><span></span></a>
+                        <?= $this->renderPartial('/include/share'); ?>
                     </div>
                     <?= CHtml::link(
                         '<img src="' . ImageIgosja::resize($item->image_id, 320, 320) . '">',

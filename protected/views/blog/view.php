@@ -6,10 +6,7 @@
         <div class="clearfix b-article">
             <div class="b-article__left">
                 <div class="blog-item__soc">
-                    <a href="" class="blog-item__soc__item blog-item__soc__item_fb"><span></span></a>
-                    <a href="" class="blog-item__soc__item blog-item__soc__item_ins"><span></span></a>
-                    <a href="" class="blog-item__soc__item blog-item__soc__item_vk"><span></span></a>
-                    <a href="" class="blog-item__soc__item blog-item__soc__item_pin"><span></span></a>
+                    <?= $this->renderPartial('/include/share'); ?>
                 </div>
                 <img src="<?= ImageIgosja::resize($o_blog->image_id, 320, 320); ?>">
             </div>
