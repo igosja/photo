@@ -38,9 +38,6 @@ class BlogController extends AController
         }
         if ($data = Yii::app()->request->getPost('Blog')) {
             $model->attributes = $data;
-            if (0 == $id) {
-                $model->date = time();
-            }
             if ($model->save()) {
                 $model = $this->getModel()->findByPk($model->id);
                 if (empty($model->url)) {

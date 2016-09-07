@@ -1,25 +1,18 @@
 <section class="content content_main">
     <div id="slider" class="owl-carousel">
-        <div class="item">
-            <img src="/img/slide-1.jpg" alt="" />
-        </div>
-        <div class="item">
-            <img src="/img/slide-2.jpg" alt="" />
-        </div>
-        <div class="item">
-            <img src="/img/slide-1.jpg" alt="" />
-        </div>
-        <div class="item">
-            <img src="/img/slide-2.jpg" alt="" />
-        </div>
+        <?php foreach ($a_slide as $item) { ?>
+            <div class="item">
+                <img src="<?= ImageIgosja::resize($item->image_id, 1600, 500); ?>" alt=""/>
+            </div>
+        <?php } ?>
     </div>
     <div class="wrap">
-        <div class="photo-albom"><img src="img/photo-albom.png" alt=""></div>
+        <div class="photo-albom"><img src="/img/photo-albom.png" alt=""></div>
         <div class="clearfix b-imgs">
             <div class="b-imgs__item b-imgs__item_1">
                 <a href="/index-albom.html" class="b-portfolio__item">
-                    <img src="img/portfolio/photo-3-hover.jpg" class="b-portfolio__item__img-hover" alt="">
-                    <img src="img/portfolio/photo-3.jpg" alt="">
+                    <img src="/img/portfolio/photo-3-hover.jpg" class="b-portfolio__item__img-hover" alt="">
+                    <img src="/img/portfolio/photo-3.jpg" alt="">
                     <div class="b-portfolio__item_in">
                         <div class="b-portfolio__item__category">Свадьба</div>
                         <div class="b-portfolio__item__title">Владимир и Людмила</div>
@@ -27,8 +20,8 @@
                     </div>
                 </a>
                 <a href="/index-albom.html" class="b-portfolio__item">
-                    <img src="img/portfolio/photo-6-hover.jpg" class="b-portfolio__item__img-hover" alt="">
-                    <img src="img/portfolio/photo-6.jpg" alt="">
+                    <img src="/img/portfolio/photo-6-hover.jpg" class="b-portfolio__item__img-hover" alt="">
+                    <img src="/img/portfolio/photo-6.jpg" alt="">
                     <div class="b-portfolio__item_in">
                         <div class="b-portfolio__item__category">Свадьба</div>
                         <div class="b-portfolio__item__title">Сергей и Юлия</div>
@@ -38,8 +31,8 @@
             </div>
             <div class="b-imgs__item b-imgs__item_2">
                 <a href="/index-albom.html" class="b-portfolio__item b-portfolio__item_width">
-                    <img src="img/portfolio/photo-width-1-hover.jpg" class="b-portfolio__item__img-hover" alt="">
-                    <img src="img/portfolio/photo-width-1.jpg" alt="">
+                    <img src="/img/portfolio/photo-width-1-hover.jpg" class="b-portfolio__item__img-hover" alt="">
+                    <img src="/img/portfolio/photo-width-1.jpg" alt="">
                     <div class="b-portfolio__item_in">
                         <div class="b-portfolio__item__category">Love Story</div>
                         <div class="b-portfolio__item__title">Андрей и Ольга</div>
@@ -47,8 +40,8 @@
                     </div>
                 </a>
                 <a href="/index-albom.html" class="b-portfolio__item b-portfolio__item_mr10">
-                    <img src="img/portfolio/photo-5-hover.jpg" class="b-portfolio__item__img-hover" alt="">
-                    <img src="img/portfolio/photo-5.jpg" alt="">
+                    <img src="/img/portfolio/photo-5-hover.jpg" class="b-portfolio__item__img-hover" alt="">
+                    <img src="/img/portfolio/photo-5.jpg" alt="">
                     <div class="b-portfolio__item_in">
                         <div class="b-portfolio__item__category">Love Story</div>
                         <div class="b-portfolio__item__title">Виктор и Мария</div>
@@ -56,8 +49,8 @@
                     </div>
                 </a>
                 <a href="/index-albom.html" class="b-portfolio__item">
-                    <img src="img/portfolio/photo-4-hover.jpg" class="b-portfolio__item__img-hover" alt="">
-                    <img src="img/portfolio/photo-4.jpg" alt="">
+                    <img src="/img/portfolio/photo-4-hover.jpg" class="b-portfolio__item__img-hover" alt="">
+                    <img src="/img/portfolio/photo-4.jpg" alt="">
                     <div class="b-portfolio__item_in">
                         <div class="b-portfolio__item__category">Семья</div>
                         <div class="b-portfolio__item__title">Петр и Оксана</div>
@@ -67,8 +60,8 @@
             </div>
             <div class="b-imgs__item b-imgs__item_1">
                 <a href="/index-albom.html" class="b-portfolio__item b-portfolio__item_height">
-                    <img src="img/portfolio/photo-height-1-hover.jpg" class="b-portfolio__item__img-hover" alt="">
-                    <img src="img/portfolio/photo-height-1.jpg" alt="">
+                    <img src="/img/portfolio/photo-height-1-hover.jpg" class="b-portfolio__item__img-hover" alt="">
+                    <img src="/img/portfolio/photo-height-1.jpg" alt="">
                     <div class="b-portfolio__item_in">
                         <div class="b-portfolio__item__category">Свадьба</div>
                         <div class="b-portfolio__item__title">Юрий и Виктория</div>
@@ -78,8 +71,8 @@
             </div>
             <div class="b-imgs__item b-imgs__item_1">
                 <a href="/index-albom.html" class="b-portfolio__item b-portfolio__item_height">
-                    <img src="img/portfolio/photo-height-2-hover.jpg" class="b-portfolio__item__img-hover" alt="">
-                    <img src="img/portfolio/photo-height-2.jpg" alt="">
+                    <img src="/img/portfolio/photo-height-2-hover.jpg" class="b-portfolio__item__img-hover" alt="">
+                    <img src="/img/portfolio/photo-height-2.jpg" alt="">
                     <div class="b-portfolio__item_in">
                         <div class="b-portfolio__item__category">Love Story</div>
                         <div class="b-portfolio__item__title">Александр и Ирина</div>
@@ -89,8 +82,8 @@
             </div>
             <div class="b-imgs__item b-imgs__item_2">
                 <a href="/index-albom.html" class="b-portfolio__item b-portfolio__item_width">
-                    <img src="img/portfolio/photo-width-2-hover.jpg" class="b-portfolio__item__img-hover" alt="">
-                    <img src="img/portfolio/photo-width-2.jpg" alt="">
+                    <img src="/img/portfolio/photo-width-2-hover.jpg" class="b-portfolio__item__img-hover" alt="">
+                    <img src="/img/portfolio/photo-width-2.jpg" alt="">
                     <div class="b-portfolio__item_in">
                         <div class="b-portfolio__item__category">Портрет</div>
                         <div class="b-portfolio__item__title">Игорь и Галина</div>
@@ -98,8 +91,8 @@
                     </div>
                 </a>
                 <a href="/index-albom.html" class="b-portfolio__item b-portfolio__item_mr10">
-                    <img src="img/portfolio/photo-7-hover.jpg" class="b-portfolio__item__img-hover" alt="">
-                    <img src="img/portfolio/photo-7.jpg" alt="">
+                    <img src="/img/portfolio/photo-7-hover.jpg" class="b-portfolio__item__img-hover" alt="">
+                    <img src="/img/portfolio/photo-7.jpg" alt="">
                     <div class="b-portfolio__item_in">
                         <div class="b-portfolio__item__category">Семья</div>
                         <div class="b-portfolio__item__title">Анатолий и Светлана</div>
@@ -107,8 +100,8 @@
                     </div>
                 </a>
                 <a href="/index-albom.html" class="b-portfolio__item">
-                    <img src="img/portfolio/photo-10-hover.jpg" class="b-portfolio__item__img-hover" alt="">
-                    <img src="img/portfolio/photo-10.jpg" alt="">
+                    <img src="/img/portfolio/photo-10-hover.jpg" class="b-portfolio__item__img-hover" alt="">
+                    <img src="/img/portfolio/photo-10.jpg" alt="">
                     <div class="b-portfolio__item_in">
                         <div class="b-portfolio__item__category">Свадьба</div>
                         <div class="b-portfolio__item__title">Олег и Елена</div>
@@ -118,8 +111,8 @@
             </div>
             <div class="b-imgs__item b-imgs__item_1">
                 <a href="/index-albom.html" class="b-portfolio__item">
-                    <img src="img/portfolio/photo-11-hover.jpg" class="b-portfolio__item__img-hover" alt="">
-                    <img src="img/portfolio/photo-11.jpg" alt="">
+                    <img src="/img/portfolio/photo-11-hover.jpg" class="b-portfolio__item__img-hover" alt="">
+                    <img src="/img/portfolio/photo-11.jpg" alt="">
                     <div class="b-portfolio__item_in">
                         <div class="b-portfolio__item__category">Портрет</div>
                         <div class="b-portfolio__item__title">Женя и Катя</div>
@@ -127,8 +120,8 @@
                     </div>
                 </a>
                 <a href="/index-albom.html" class="b-portfolio__item">
-                    <img src="img/portfolio/photo-12-hover.jpg" class="b-portfolio__item__img-hover" alt="">
-                    <img src="img/portfolio/photo-12.jpg" alt="">
+                    <img src="/img/portfolio/photo-12-hover.jpg" class="b-portfolio__item__img-hover" alt="">
+                    <img src="/img/portfolio/photo-12.jpg" alt="">
                     <div class="b-portfolio__item_in">
                         <div class="b-portfolio__item__category">Портрет</div>
                         <div class="b-portfolio__item__title">Богдан и Татьяна</div>

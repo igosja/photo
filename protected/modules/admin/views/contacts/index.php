@@ -35,6 +35,20 @@
                     <?= $model->email; ?>
                 </td>
             </tr>
+            <?php if (isset($model->image->url)) { ?>
+                <tr>
+                    <td>
+                        Изображение
+                    </td>
+                    <td>
+                        <div class="col-lg-3">
+                            <a href="javascript:;" class="thumbnail">
+                                <img src="<?= $model->image->url; ?>"/>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            <?php } ?>
             <tr>
                 <td>
                     SEO title

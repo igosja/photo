@@ -3,47 +3,51 @@
         <h1 class="page-header text-center"><?= $this->h1; ?></h1>
         <ul class="list-inline preview-links text-center">
             <li>
-                <?= CHtml::link('Список', array('index'), array('class' => 'btn btn-default')); ?>
+                <?= CHtml::link('Список', array('ask/index'), array('class' => 'btn btn-default')); ?>
             </li>
-            <li>
-                <?= CHtml::link('Редактировать', array('update', 'id' => $model->id), array('class' => 'btn btn-default')); ?>
-            </li>
-        </ul>
     </div>
 </div>
 <div class="row">
     <div class="col-lg-12">
         <table class="table">
             <tr>
+                <td>
+                    Дата обращения
+                </td>
+                <td>
+                    <?= date('d.m.Y', $model->date); ?>
+                </td>
+            </tr>
+            <tr>
                 <td class="col-lg-4">
-                    Название
+                    Имя
                 </td>
                 <td>
                     <?= $model->name; ?>
                 </td>
             </tr>
             <tr>
-                <td>
-                    Категория
+                <td class="col-lg-4">
+                    Email
                 </td>
                 <td>
-                    <?= $model->category->name; ?>
+                    <?= $model->email; ?>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-lg-4">
+                    Телефон
+                </td>
+                <td>
+                    <?= $model->tel; ?>
                 </td>
             </tr>
             <tr>
                 <td>
-                    Цена, грн
+                    Текст
                 </td>
                 <td>
-                    <?= $model->price; ?>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Описание
-                </td>
-                <td>
-                    <?= $model->text; ?>
+                    <?= nl2br($model->text); ?>
                 </td>
             </tr>
         </table>

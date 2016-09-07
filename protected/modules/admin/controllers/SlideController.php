@@ -1,9 +1,9 @@
 <?php
 
-class PhotocategoryController extends AController
+class SlideController extends AController
 {
-    public $h1 = 'Категории альбомов';
-    public $model_name = 'PhotoCategory';
+    public $h1 = 'Слайды';
+    public $model_name = 'Slide';
 
     public function actionIndex()
     {
@@ -13,46 +13,25 @@ class PhotocategoryController extends AController
 
     public function actionUpdate($id)
     {
-        $this->h1 = 'Редактирование категории';
-        $id = (int)$id;
-        if (0 == $id) {
-            $model = $this->getModel();
-        } else {
-            $model = $this->getModel()->findByPk($id);
-            if (null === $model) {
-                throw new CHttpException(404, 'Страница не найдена.');
-            }
-        }
-        if ($data = Yii::app()->request->getPost($this->model_name)) {
-            $model->attributes = $data;
-            if ($model->save()) {
-                $model = $this->getModel()->findByPk($model->id);
-                if (empty($model->url)) {
-                    $model->url = $model->id . '-' . str_replace($this->rus, $this->lat, $model->name);
-                    $model->save();
-                }
-                $this->redirect(array('view', 'id' => $model->id));
-            }
-        }
+        $this->h1 = 'Загрузка слайдов';
+        $model = $this->getModel();
+        $this->uploadImage($model->id);
         $this->render('form', array('model' => $model));
     }
 
-    public function actionView($id)
+    public function actionDelete($id)
     {
         $id = (int)$id;
         $model = $this->getModel()->findByPk($id);
         if (null === $model) {
             throw new CHttpException(404, 'Страница не найдена.');
         }
-        $this->h1 = $model->name;
-        $this->render('view', array('model' => $model));
-    }
-
-    public function actionDelete($id)
-    {
-        $model = $this->getModel()->findByPk($id);
-        $model->deleteByPk($id);
-        Price::model()->deleteAllByAttributes(array('pricecategory' => $id));
+        $o_image = Image::model()->findByPk($model->image_id);
+        if (file_exists($_SERVER['DOCUMENT_ROOT'] . $o_image->url)) {
+            unlink($_SERVER['DOCUMENT_ROOT'] . $o_image->url);
+        }
+        $o_image->delete();
+        $this->getModel()->deleteByPk($id);
         $this->redirect(array('index'));
     }
 
@@ -85,6 +64,28 @@ class PhotocategoryController extends AController
                 $model->order++;
                 $model->save();
             }
+        }
+    }
+
+    public function uploadImage($id)
+    {
+        if (isset($_FILES['image']['name'][0]) && !empty($_FILES['image']['name'][0])) {
+            $image = $_FILES['image'];
+            for ($i = 0, $count_image = count($image['name']); $i < $count_image; $i++) {
+                $ext = $image['name'][$i];
+                $ext = explode('.', $ext);
+                $ext = end($ext);
+                $file = $image['tmp_name'][$i];
+                $image_url = ImageIgosja::put_file($file, $ext);
+                $o_image = new Image();
+                $o_image->url = $image_url;
+                $o_image->save();
+                $image_id = $o_image->id;
+                $o_slide = new Slide();
+                $o_slide->image_id = $image_id;
+                $o_slide->save();
+            }
+            $this->redirect(array('index'));
         }
     }
 

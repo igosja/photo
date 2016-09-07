@@ -6,7 +6,11 @@
                 <?= CHtml::link('Список', array('index'), array('class' => 'btn btn-default')); ?>
             </li>
             <li>
-                <?= CHtml::link('Редактировать', array('update', 'id' => $model->id), array('class' => 'btn btn-default')); ?>
+                <?= CHtml::link(
+                    'Редактировать',
+                    array('update', 'id' => $model->id),
+                    array('class' => 'btn btn-default')
+                ); ?>
             </li>
         </ul>
     </div>
@@ -15,44 +19,30 @@
     <div class="col-lg-12">
         <table class="table">
             <tr>
-                <td class="col-lg-4">
-                    Название
-                </td>
+                <td class="col-lg-4"><?= $model->getAttributeLabel('name'); ?></td>
+                <td><?= $model->name; ?></td>
+            </tr>
+            <tr>
+                <td><?= $model->getAttributeLabel('url'); ?></td>
                 <td>
-                    <?= $model->name; ?>
+                    <?= CHtml::link(
+                        $model->url,
+                        array('/portfolio/index', 'id' => $model->url),
+                        array('target' => '_blank')
+                    ); ?>
                 </td>
             </tr>
             <tr>
-                <td>
-                    Ссылка
-                </td>
-                <td>
-                    <?= CHtml::link($model->url, array('/portfolio/index', 'id' => $model->url), array('target' => '_blank')); ?>
-                </td>
+                <td><?= $model->getAttributeLabel('seo_title'); ?></td>
+                <td><?= $model->seo_title; ?></td>
             </tr>
             <tr>
-                <td>
-                    SEO title
-                </td>
-                <td>
-                    <?= $model->seo_title; ?>
-                </td>
+                <td><?= $model->getAttributeLabel('seo_description'); ?></td>
+                <td><?= $model->seo_description; ?></td>
             </tr>
             <tr>
-                <td>
-                    SEO description
-                </td>
-                <td>
-                    <?= $model->seo_description; ?>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    SEO keywords
-                </td>
-                <td>
-                    <?= $model->seo_keywords; ?>
-                </td>
+                <td><?= $model->getAttributeLabel('seo_keywords'); ?></td>
+                <td><?= $model->seo_keywords; ?></td>
             </tr>
         </table>
     </div>

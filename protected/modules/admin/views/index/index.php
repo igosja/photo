@@ -4,70 +4,54 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-lg-3 col-md-6">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <i class="fa fa-info-circle fa-5x"></i>
-                    </div>
-                    <div class="col-xs-9 text-right">
-                        <div class="huge">123</div>
-                        <div>qwer</div>
+    <?php if ($this->ask) { ?>
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-question-circle fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge"><?= $this->ask; ?></div>
+                            <div>Сообщения</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <a href="javascript:;">
-                <div class="panel-footer">
+                <?= CHtml::link(
+                    '<div class="panel-footer">
                     <span class="pull-left">Подробнее</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                     <div class="clearfix"></div>
-                </div>
-            </a>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6">
-        <div class="panel panel-yellow">
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <i class="fa fa-user fa-5x"></i>
-                    </div>
-                    <div class="col-xs-9 text-right">
-                        <div class="huge">321</div>
-                        <div>asdf</div>
-                    </div>
-                </div>
+                </div>',
+                    array('ask/index')
+                ); ?>
             </div>
-            <a href="javascript:;">
-                <div class="panel-footer">
+        </div>
+    <?php } ?>
+    <?php if ($this->order) { ?>
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-green">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-shopping-cart fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge"><?= $this->order; ?></div>
+                            <div>Заказы</div>
+                        </div>
+                    </div>
+                </div>
+                <?= CHtml::link(
+                    '<div class="panel-footer">
                     <span class="pull-left">Подробнее</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                     <div class="clearfix"></div>
-                </div>
-            </a>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6">
-        <div class="panel panel-red">
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <i class="fa fa-times fa-5x"></i>
-                    </div>
-                    <div class="col-xs-9 text-right">
-                        <div class="huge">951</div>
-                        <div>zxcv</div>
-                    </div>
-                </div>
+                </div>',
+                    array('order/index')
+                ); ?>
             </div>
-            <a href="javascript:;">
-                <div class="panel-footer">
-                    <span class="pull-left">Подробнее</span>
-                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                    <div class="clearfix"></div>
-                </div>
-            </a>
         </div>
-    </div>
+    <?php } ?>
 </div>

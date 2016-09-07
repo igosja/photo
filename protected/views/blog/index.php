@@ -1,9 +1,6 @@
 <section class="content">
     <div class="wrap">
-        <div class="breadchambs">
-            <a href="/">Главная</a>
-            <span>Блог</span>
-        </div>
+        <?= $this->renderPartial('/include/bread'); ?>
         <h1 class="m-title">Блог</h1>
         <div class="blog-items clearfix">
             <?php foreach ($a_blog as $item) { ?>
@@ -15,7 +12,7 @@
                         <a href="" class="blog-item__soc__item blog-item__soc__item_pin"><span></span></a>
                     </div>
                     <?= CHtml::link(
-                        '<img src="' . $item->image->url . '">',
+                        '<img src="' . ImageIgosja::resize($item->image_id, 320, 320) . '">',
                         array('blog/view', 'id' => $item->url),
                         array('class' => 'blog-item__img')
                     ); ?>
@@ -31,12 +28,15 @@
         </div>
         <div class="pager-b">
             <a href="" class="page-b__prev"></a>
-            <span>1</span>
-            <a href="" class="pager-b__item">2</a>
-            <a href="" class="pager-b__item">3</a>
-            <a href="" class="pager-b__item">4</a>
-            <a href="" class="pager-b__item">5</a>
-            <a href="" class="page-b__next"></a>
+            <?= CHtml::link('', array('blog/index', 'id' => $prev), array('class' => 'page-b__prev')); ?>
+            <?php for ($i = 1; $i <= $a_page; $i++) { ?>
+                <?php if ($page == $i) { ?>
+                    <span><?= $i; ?></span>
+                <?php } else { ?>
+                    <?= CHtml::link($i, array('blog/index', 'id' => $i), array('class' => 'pager-b__item')); ?>
+                <?php } ?>
+            <?php } ?>
+            <?= CHtml::link('', array('blog/index', 'id' => $next), array('class' => 'page-b__next')); ?>
         </div>
         <div class="text-b">
             <div class="text-b__soc text-b__soc_mt">

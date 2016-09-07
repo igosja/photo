@@ -94,8 +94,7 @@
                         <?= CHtml::link('<i class="fa fa-times"></i>', array('image', 'id' => $item->id)); ?>
                     </td>
                     <td>
-                        <input type="text" value="<?= $item->alt; ?>" name="alt[<?= $item->id; ?>]"
-                               class="form-control">
+                        <input type="text" value="<?= $item->alt; ?>" name="alt[<?= $item->id; ?>]" class="form-control">
                     </td>
                 </tr>
             <?php } ?>

@@ -25,4 +25,24 @@ class SiteController extends Controller
         Yii::app()->user->logout();
         $this->redirect(array('site/login'));
     }
+
+    public function actionOrder()
+    {
+        if ($data = Yii::app()->request->getPost('data')){
+            $o_price = Price::model()->findByPk($data['price_id']);
+            $o_order = new Order();
+            $o_order->attributes = $data;
+            $o_order->price = $o_price->category->name . ', ' . $o_price->name;
+            $o_order->save();
+        }
+    }
+
+    public function actionAsk()
+    {
+        if ($data = Yii::app()->request->getPost('data')){
+            $o_ask = new Ask();
+            $o_ask->attributes = $data;
+            $o_ask->save();
+        }
+    }
 }

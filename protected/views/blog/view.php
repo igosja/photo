@@ -11,17 +11,29 @@
                     <a href="" class="blog-item__soc__item blog-item__soc__item_vk"><span></span></a>
                     <a href="" class="blog-item__soc__item blog-item__soc__item_pin"><span></span></a>
                 </div>
-                <?php if (isset($o_blog->image->url)) { ?>
-                    <img src="<?= $o_blog->image->url; ?>">
-                <?php } ?>
+                <img src="<?= ImageIgosja::resize($o_blog->image_id, 320, 320); ?>">
             </div>
             <div class="b-article__right">
                 <?= $o_blog->text; ?>
             </div>
         </div>
         <div class="b-article__pager">
-            <a href="javascript:;" class="b-article__pager__prev">Предидущая статья</a>
-            <a href="javascript:;" class="b-article__pager__next">Следущая статья</a>
+            <?= (isset($prev->url) ?
+                CHtml::link(
+                    'Предидущая статья',
+                    array('blog/view', 'id' => $prev->url),
+                    array('class' => 'b-article__pager__prev')
+                ) :
+                '<a href="javascript:;" class="b-article__pager__prev">Предидущая статья</a>'
+            ); ?>
+            <?= (isset($next->url) ?
+                CHtml::link(
+                    'Следущая статья',
+                    array('blog/view', 'id' => $next->url),
+                    array('class' => 'b-article__pager__next')
+                ) :
+                '<a href="javascript:;" class="b-article__pager__next">Следущая статья</a>'
+            ); ?>
         </div>
         <div class="text-b">
             <div class="text-b__soc text-b__soc_mt">

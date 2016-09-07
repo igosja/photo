@@ -29,6 +29,16 @@ class Blog extends CActiveRecord
         );
     }
 
+    public function beforeSave()
+    {
+        if (parent::beforeSave()) {
+            if (!$this->date) {
+                $this->date = time();
+            }
+        }
+        return true;
+    }
+
     public function relations()
     {
         return array(

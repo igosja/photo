@@ -46,8 +46,8 @@
 <div class="sitewrap">
     <header class="clearfix">
         <div class="wrap">
-            <?= CHtml::link('<img src="/img/logo.png" alt="">', array('/'), array('class' => 'logo')); ?>
-            <a href="javascript:;" data-selector="form-order" class="header-offer overlayElementTrigger">
+            <?= CHtml::link('<img src="/img/logo.png" alt="">', array('index/index'), array('class' => 'logo')); ?>
+            <a href="javascript:;" data-selector="form-order" class="header-offer overlayElementTrigger" data-id="0">
                 Заказать фотосессию
             </a>
             <nav>
@@ -97,9 +97,12 @@
                     <input type="tel" class="of-input of-input_phone phone_mask" placeholder="Телефон" required/>
                     <input type="email" class="of-input of-input_email" placeholder="E-mail" required/>
                     <div class="jqui-select">
-                        <select name="" id="">
-                            <option value="" selected="">Свадебная фотосьемка</option>
-                            <option value="">Свадебная фотосьемка 1</option>
+                        <select name="price_id" id="of-price">
+                            <?php foreach ($this->a_price as $item) { ?>
+                                <option value="<?= $item->id; ?>">
+                                    <?= $item->category->name; ?>, <?= $item->name; ?>
+                                </option>
+                            <?php } ?>
                         </select>
                     </div>
                     <textarea placeholder="Комментарий" class="of-form__textarea"></textarea>

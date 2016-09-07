@@ -3,6 +3,7 @@
 class AlbumController extends AController
 {
     public $h1 = 'Альбомы';
+    public $model_name = 'Album';
 
     public function actionIndex()
     {
@@ -22,7 +23,7 @@ class AlbumController extends AController
                 throw new CHttpException(404, 'Страница не найдена.');
             }
         }
-        if ($data = Yii::app()->request->getPost('Album')) {
+        if ($data = Yii::app()->request->getPost($this->model_name)) {
             $model->attributes = $data;
             if ($model->save()) {
                 $model = $this->getModel()->findByPk($model->id);
@@ -148,9 +149,9 @@ class AlbumController extends AController
         }
     }
 
-    public function getModel()
+    public function getModel($search = '')
     {
-        $model = new Album();
+        $model = new $this->model_name($search);
         return $model;
     }
 }

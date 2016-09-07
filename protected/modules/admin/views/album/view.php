@@ -15,27 +15,21 @@
     <div class="col-lg-12">
         <table class="table">
             <tr>
-                <td class="col-lg-4">
-                    Название
-                </td>
-                <td>
-                    <?= $model->name; ?>
-                </td>
+                <td class="col-lg-4"><?= $model->getAttributeLabel('name'); ?></td>
+                <td><?= $model->name; ?></td>
             </tr>
             <tr>
-                <td>
-                    Категория
-                </td>
-                <td>
-                    <?= $model->category->name; ?>
-                </td>
+                <td><?= $model->getAttributeLabel('photocategory_id'); ?></td>
+                <td><?= $model->category->name; ?></td>
             </tr>
             <tr>
+                <td><?= $model->getAttributeLabel('url'); ?></td>
                 <td>
-                    Ссылка
-                </td>
-                <td>
-                    <?= CHtml::link($model->url, array('/portfolio/view', 'id' => $model->url), array('target' => '_blank')); ?>
+                    <?= CHtml::link(
+                        $model->url,
+                        array('/portfolio/view', 'id' => $model->url),
+                        array('target' => '_blank')
+                    ); ?>
                 </td>
             </tr>
         </table>

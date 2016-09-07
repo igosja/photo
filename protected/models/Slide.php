@@ -1,32 +1,24 @@
 <?php
 
-class Contacts extends CActiveRecord
+class Slide extends CActiveRecord
 {
     public function tableName()
     {
-        return 'contacts';
+        return 'slide';
     }
 
     public function rules()
     {
         return array(
-            array('lifecell, kyivstar, email', 'required'),
-            array('email', 'email'),
-            array('seo_title', 'length', 'max' => 255),
-            array('seo_description, seo_keywords', 'safe'),
+            array('image_id', 'numerical'),
+            array('image_id', 'required'),
         );
     }
 
     public function attributeLabels()
     {
         return array(
-            'email' => 'Email',
             'image_id' => 'Изображение',
-            'kyivstar' => 'Киевстар',
-            'lifecell' => 'Lifecell',
-            'seo_description' => 'SEO description',
-            'seo_keywords' => 'SEO keywords',
-            'seo_title' => 'SEO title',
         );
     }
 

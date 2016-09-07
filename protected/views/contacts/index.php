@@ -15,14 +15,14 @@
                 </div>
             </div>
             <div class="contacts-c">
-                <img src="/img/contacts-photo.jpg" alt="">
+                <img src="<?= ImageIgosja::resize($this->contacts->image_id, 380, 570); ?>" alt="">
             </div>
             <div class="contacts-r">
                 <h2 class="contacts-r__title">Пишите мне!</h2>
                 <form>
                     <input type="text" class="of-input of-input_name" placeholder="Ваше имя" required />
                     <input type="tel" class="of-input of-input_phone phone_mask" placeholder="Телефон" required />
-                    <input type="email" class="of-input of-input_email" placeholder="E-mail" required=" " />
+                    <input type="email" class="of-input of-input_email" placeholder="E-mail" required />
                     <textarea placeholder="Сообщение" class="of-form__textarea"></textarea>
                     <a href="javascript:;" class="of-submit">Заказать</a>
                 </form>

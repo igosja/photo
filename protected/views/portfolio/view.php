@@ -1,24 +1,15 @@
 <section class="content">
     <div class="wrap clearfix">
         <?= $this->renderPartial('/include/bread'); ?>
-        <h1 class="m-title"><?= $o_album->name; ?></h1>
-        <div class="albom-b clearfix">
-            <?php foreach ($o_album->photo as $item) { ?>
-                <div class="albom-b__item">
-                    <img src="<?= $item->image->url; ?>" alt="<?= $item->alt; ?>">
-                    <a href="<?= $item->image->url; ?>" class="fancybox" rel="show-gallery">
-                        <img src="<?= $item->image->url; ?>" alt="<?= $item->alt; ?>">
-                    </a>
-                    <div class="blog-item__soc">
-                        <a href="" class="blog-item__soc__item blog-item__soc__item_fb"><span></span></a>
-                        <a href="" class="blog-item__soc__item blog-item__soc__item_ins"><span></span></a>
-                        <a href="" class="blog-item__soc__item blog-item__soc__item_vk"><span></span></a>
-                        <a href="" class="blog-item__soc__item blog-item__soc__item_pin"><span></span></a>
-                    </div>
-                </div>
+        <h1 class="m-title"><span><?= $o_album->category->name; ?></span> <?= $o_album->name; ?></h1>
+        <div class="albom-b clearfix" id="inner">
+            <?php foreach ($a_photo as $item) { ?>
+                <?= $this->renderPartial('/include/item-photo', array('item' => $item)); ?>
             <?php } ?>
         </div>
-        <a href="javascript:;" class="show-more">Загрузить еще</a>
+        <a href="javascript:;" class="show-more" id="photo-more" data-id="<?= $id; ?>" data-page="1">
+            Загрузить еще
+        </a>
         <div class="text-b">
             <div class="text-b__soc text-b__soc_mt">
                 <?= $this->renderPartial('/include/social'); ?>
