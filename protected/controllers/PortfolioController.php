@@ -15,7 +15,7 @@ class PortfolioController extends Controller
         }
         $this->breadcrumbs[] = array('url' => 'index/index', 'text' => 'Главная');
         if (!empty($id)) {
-            $this->breadcrumbs[] = array('url' => 'portfolio/index', 'text' => $o_category->name);
+            $this->breadcrumbs[] = array('url' => 'portfolio/index', 'text' => 'Портфолио');
             $this->breadcrumbs[] = array('text' => $o_category->name);
         } else {
             $this->breadcrumbs[] = array('text' => 'Портфолио');
