@@ -157,7 +157,7 @@ jQuery(document).ready(function ($) {
         closeEffect: 'none',
 
         beforeShow: function () {
-            $('.fancybox-outer').append('<div class="blog-item__soc"><a href="" class="blog-item__soc__item blog-item__soc__item_fb"><span></span></a><a href="" class="blog-item__soc__item blog-item__soc__item_ins"><span></span></a><a href="" class="blog-item__soc__item blog-item__soc__item_vk"><span></span></a><a href="" class="blog-item__soc__item blog-item__soc__item_pin"><span></span></a></div>');
+            //$('.fancybox-outer').append('<div class="blog-item__soc"><a href="" class="blog-item__soc__item blog-item__soc__item_fb"><span></span></a><a href="" class="blog-item__soc__item blog-item__soc__item_ins"><span></span></a><a href="" class="blog-item__soc__item blog-item__soc__item_vk"><span></span></a><a href="" class="blog-item__soc__item blog-item__soc__item_pin"><span></span></a></div>');
         },
         afterLoad: function () {
 
