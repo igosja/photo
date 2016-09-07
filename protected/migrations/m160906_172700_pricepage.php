@@ -7,6 +7,7 @@ class m160906_172700_pricepage extends CDbMigration
         $this->createTable('pricepage', array(
             'id' => 'pk',
             'text' => 'text NOT NULL',
+            'title' => 'varchar(255) NOT NULL',
             'seo_description' => 'text NOT NULL',
             'seo_keywords' => 'text NOT NULL',
             'seo_title' => 'varchar(255) NOT NULL',
@@ -14,6 +15,7 @@ class m160906_172700_pricepage extends CDbMigration
 
         $this->insert('pricepage', array(
             'text' => 'Текст в прайсах',
+            'title' => 'Заголовок',
             'seo_description' => 'Прайсы',
             'seo_keywords' => 'Прайсы',
             'seo_title' => 'Прайсы',

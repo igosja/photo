@@ -77,9 +77,7 @@
                 </div>
             </div>
             <div class="footer-info__copyright">
-                <a href="javascript:;" class="">
-                    <img src="img/bottom-logo.png" alt="">
-                </a>
+                <?= CHtml::link('<img src="/img/bottom-logo.png" alt="">', array('index/index')); ?>
                 <br/>
                 ©&nbsp;&nbsp;2014-<?= date('Y'); ?> «Anna Plakhotna»
             </div>
