@@ -14,7 +14,7 @@ class PortfolioController extends Controller
             $attributes = array('photocategory_id' => $o_category->id, 'status' => 1);
         }
         $this->breadcrumbs[] = array('url' => 'index/index', 'text' => 'Главная');
-        if (empty($id)) {
+        if (!empty($id)) {
             $this->breadcrumbs[] = array(
                 'url' => $this->createUrl('portfolio/index', array('id' => $o_category->url)),
                 'text' => $o_category->name
