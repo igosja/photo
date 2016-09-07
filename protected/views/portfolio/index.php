@@ -3,12 +3,16 @@
         <?= $this->renderPartial('/include/bread'); ?>
         <h1 class="m-title">Портфолио</h1>
         <div class="b-portfolio__menu">
-            <?= CHtml::link('Все', array('portfolio/index'), array('class' => 'b-portfolio__menu__i')); ?>
+            <?= CHtml::link(
+                'Все',
+                array('portfolio/index'),
+                array('class' => 'b-portfolio__menu__i' . ('' == $id ? ' active' : ''))
+            ); ?>
             <?php foreach ($a_photocategory as $item) { ?>
                 <?= CHtml::link(
                     $item->name,
                     array('portfolio/index', 'id' => $item->url),
-                    array('class' => 'b-portfolio__menu__i')
+                    array('class' => 'b-portfolio__menu__i' . ($item->url == $id ? ' active' : ''))
                 ); ?>
             <?php } ?>
         </div>
