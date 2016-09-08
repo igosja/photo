@@ -9,7 +9,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="col-lg-3"><?php echo $form->labelEx($model, 'seo_title'); ?></td>
+                <td class="col-lg-3"><?php echo $form->labelEx($model, 'seo_description'); ?></td>
                 <td>
                     <?php echo $form->textArea($model, 'seo_description', array('class' => 'form-control')); ?>
                     <?php echo $form->error($model, 'seo_description'); ?>
