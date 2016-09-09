@@ -210,7 +210,7 @@ jQuery(document).ready(function ($) {
     $('.slides').cycle({
         fx:     'none',
         speed:   1,
-        timeout: 70
+        timeout: 1000
     }).cycle("pause");
 
     // Pause &amp; play on hover

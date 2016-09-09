@@ -38,23 +38,33 @@
                         $photo_main_id = 0;
                         $photo_main_alt = '';
                     }
-                    $photo_hover_id = (isset($a_album[$i]->photo[1]->image_id) ? $a_album[$i]->photo[1]->image_id : 0);
-                    $photo_hover_alt = (isset($a_album[$i]->photo[1]->alt) ? $a_album[$i]->photo[1]->alt : '');
+                    $a_image = '';
+                    foreach ($a_album[$i]->photo as $image) {
+                        $a_image = $a_image
+                            . '<li>
+                                   <img
+                                       src="' . ImageIgosja::resize($image->image_id, $width, $height) . '"
+                                       alt="' . $image->alt . '"
+                                    >
+                               </li>';
+                    }
                     ?>
                     <?= CHtml::link(
-                        '<img
-                            src="' . ImageIgosja::resize($photo_hover_id, $width, $height) . '"
-                            alt="' . $photo_hover_alt . '"
+                        '<ul class="slides">
+                            ' . $a_image . '
+                        </ul>
+                        <img
+                            src="' . ImageIgosja::resize($photo_main_id, $width, $height) . '"
+                            alt="' . $photo_main_alt . '"
                             class="b-portfolio__item__img-hover"
                          >
-                         <img src="' . ImageIgosja::resize($photo_main_id, $width, $height) . '" alt="' . $photo_main_alt . '">
                          <div class="b-portfolio__item_in">
                             <div class="b-portfolio__item__category">' . $a_album[$i]->category->name . '</div>
                             <div class="b-portfolio__item__title">' . $a_album[$i]->name . '</div>
                             <div class="b-portfolio__item__btn">Смотреть</div>
                         </div>',
                         array('portfolio/view', 'id' => $a_album[$i]->url),
-                        array('class' => 'b-portfolio__item ' . $css)
+                        array('class' => 'link b-portfolio__item ' . $css)
                     ); ?>
                 <?php } ?>
                 <?php if (in_array($i, array(1, 4, 5, 6, 9, 11))) { ?>
