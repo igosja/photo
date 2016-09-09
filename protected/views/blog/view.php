@@ -6,7 +6,13 @@
         <div class="clearfix b-article">
             <div class="b-article__left">
                 <div class="blog-item__soc">
-                    <?= $this->renderPartial('/include/share'); ?>
+                    <?= $this->renderPartial(
+                        '/include/share',
+                        array(
+                            'url' => $this->createAbsoluteUrl('blog/view', array('id' => $o_blog->url)),
+                            'image' => ImageIgosja::resize($o_blog->image_id, 320, 320)
+                        )
+                    ); ?>
                 </div>
                 <img src="<?= ImageIgosja::resize($o_blog->image_id, 320, 320); ?>">
             </div>

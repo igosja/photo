@@ -42,6 +42,11 @@ class PortfolioController extends Controller
             'text' => $o_album->category->name
         );
         $this->breadcrumbs[] = array('text' => $o_album->name);
+        if (isset($o_album->main->image->url)) {
+            $this->og_image = $o_album->main->image->url;
+        } elseif (isset($a_photo[0]->image->url)) {
+            $this->og_image = $a_photo[0]->image->url;
+        }
         $this->render('view', array('o_album' => $o_album, 'a_photo' => $a_photo, 'id' => $id));
     }
 

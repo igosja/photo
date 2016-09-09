@@ -37,6 +37,9 @@ class BlogController extends Controller
         $this->breadcrumbs[] = array('url' => 'index/index', 'text' => 'Главная');
         $this->breadcrumbs[] = array('url' => 'blog/index', 'text' => 'Блог');
         $this->breadcrumbs[] = array('text' => $o_blog->name);
+        if (isset($o_blog->image->url)) {
+            $this->og_image = $o_blog->image->url;
+        }
         $prev = Blog::model()->find(array('condition' => 'id<' . $o_blog->id, 'order' => 'id DESC'));
         $next = Blog::model()->find(array('condition' => 'id>' . $o_blog->id, 'order' => 'id'));
         $this->render('view', array('o_blog' => $o_blog, 'prev' => $prev, 'next' => $next));

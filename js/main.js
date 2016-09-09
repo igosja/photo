@@ -157,7 +157,12 @@ jQuery(document).ready(function ($) {
         closeEffect: 'none',
 
         beforeShow: function () {
-            //$('.fancybox-outer').append('<div class="blog-item__soc"><a href="" class="blog-item__soc__item blog-item__soc__item_fb"><span></span></a><a href="" class="blog-item__soc__item blog-item__soc__item_ins"><span></span></a><a href="" class="blog-item__soc__item blog-item__soc__item_vk"><span></span></a><a href="" class="blog-item__soc__item blog-item__soc__item_pin"><span></span></a></div>');
+            //$('.fancybox-outer').append('<div class="blog-item__soc">
+            // <a href="" class="blog-item__soc__item blog-item__soc__item_fb"><span></span></a>
+            // <a href="" class="blog-item__soc__item blog-item__soc__item_ins"><span></span></a>
+            // <a href="" class="blog-item__soc__item blog-item__soc__item_vk"><span></span></a>
+            // <a href="" class="blog-item__soc__item blog-item__soc__item_pin"><span></span></a>
+            // </div>');
         },
         afterLoad: function () {
 
@@ -200,5 +205,18 @@ jQuery(document).ready(function ($) {
                 }
             }
         })
+    });
+
+    $('.slides').cycle({
+        fx:     'none',
+        speed:   1,
+        timeout: 70
+    }).cycle("pause");
+
+    // Pause &amp; play on hover
+    $('.link').hover(function(){
+        $(this).find('.slides').addClass('active').cycle('resume');
+    }, function(){
+        $(this).find('.slides').removeClass('active').cycle('pause');
     });
 });
