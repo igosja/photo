@@ -15,7 +15,12 @@
     <meta name="keywords" content="<?= $this->seo_keywords; ?>">
     <meta http-equiv="content-language" content="ru"/>
     <meta name="viewport" content="width=1240">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta property="og:title" content="<?= $this->seo_title; ?>" />
+    <meta property="og:description" content="<?= $this->seo_description; ?>" />
+    <meta property="og:type" content="text" />
+    <meta property="og:image" content="http://<?= $_SERVER['HTTP_HOST'] . $this->og_image; ?>" />
+    <meta property="og:url" content="http://<?= $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link
         href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,600,300&subset=latin,cyrillic'
         rel='stylesheet'

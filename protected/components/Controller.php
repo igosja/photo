@@ -11,6 +11,7 @@ class Controller extends CController
     public $a_price;
     public $a_social;
     public $contacts;
+    public $og_image;
 
     public function init()
     {
