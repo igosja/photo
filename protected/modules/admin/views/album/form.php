@@ -82,8 +82,12 @@
                 <tr class="sorter" data-id="<?= $item->id; ?>" data-controller="admin/photo"
                     data-album="<?= $model->id; ?>">
                     <td>
-                        <input type="radio" name="photo-main" value="<?= $item->id; ?>"
-                               <?php if (1 == $item->main) { ?>checked<?php } ?>>
+                        <input
+                            type="radio"
+                            name="photo-main"
+                            value="<?= $item->id; ?>"
+                            <?php if (1 == $item->main) { ?>checked<?php } ?>
+                        >
                     </td>
                     <td class="col-lg-6">
                         <div class="col-lg-6">

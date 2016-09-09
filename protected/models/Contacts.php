@@ -11,6 +11,8 @@ class Contacts extends CActiveRecord
     {
         return array(
             array('lifecell, kyivstar, email', 'required'),
+            array('lifecell, kyivstar', 'numerical'),
+            array('lifecell, kyivstar', 'length', 'max' => 10),
             array('email', 'email'),
             array('seo_title', 'length', 'max' => 255),
             array('seo_description, seo_keywords', 'safe'),

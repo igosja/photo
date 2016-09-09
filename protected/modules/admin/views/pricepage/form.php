@@ -25,7 +25,7 @@
                     <tr>
                         <td class="col-lg-3"><?= $form->labelEx($model, 'text'); ?></td>
                         <td>
-                            <?= $form->textArea($model, 'text', array('class' => 'form-control', 'rows' => 10)); ?>
+                            <?= $form->textArea($model, 'text', array('class' => 'ckeditor')); ?>
                             <?= $form->error($model, 'text'); ?>
                         </td>
                     </tr>

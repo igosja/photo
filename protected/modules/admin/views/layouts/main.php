@@ -123,5 +123,6 @@
 </div>
 <script src="/js/rowsorter.js"></script>
 <script src="/js/admin.min.js"></script>
+<script src="/js/ckeditor/ckeditor.js"></script>
 </body>
 </html>
