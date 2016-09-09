@@ -12,22 +12,23 @@ if (isset($item->main->image_id)) {
 $a_image = '';
 foreach ($item->photo as $image) {
     $a_image = $a_image
-        . '<img
-               src="' . ImageIgosja::resize($image->image_id, 390, 390) . '"
-               alt="' . $image->alt . '"
-               class="b-portfolio__item__img-hover"
-            >';
+        . '<li>
+               <img
+                   src="' . ImageIgosja::resize($image->image_id, 390, 390) . '"
+                   alt="' . $image->alt . '"
+                >
+           </li>';
 }
 ?>
 <?= CHtml::link(
-    '<img
+    '<ul class="slides">
+        ' . $a_image . '
+    </ul>
+    <img
         src="' . ImageIgosja::resize($photo_main_id, 390, 390) . '"
         alt="' . $photo_main_alt . '"
-        class=""
+        class="b-portfolio__item__img-hover"
     >
-    <span class="slides">
-        ' . $a_image . '
-    </span>
     <div class="b-portfolio__item_in">
         <div class="b-portfolio__item__category">' . $item->category->name . '</div>
         <div class="b-portfolio__item__title">' . $item->name . '</div>
