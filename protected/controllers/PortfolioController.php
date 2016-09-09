@@ -31,6 +31,7 @@ class PortfolioController extends Controller
         if (null === $o_album) {
             throw new CHttpException(404, 'Страница не найдена.');
         }
+        $this->setSEO($o_album);
         $a_photo = Photo::model()->findAllByAttributes(
             array('album_id' => $o_album->id, 'status' => 1),
             array('order' => '`order`', 'limit' => 9)
