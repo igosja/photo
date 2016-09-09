@@ -43,9 +43,9 @@ class PortfolioController extends Controller
         );
         $this->breadcrumbs[] = array('text' => $o_album->name);
         if (isset($o_album->main->image->url)) {
-            $this->og_image = $o_album->main->image->url;
+            $this->og_image = ImageIgosja::resize($o_album->main->image_id, 290, 290);
         } elseif (isset($a_photo[0]->image->url)) {
-            $this->og_image = $a_photo[0]->image->url;
+            $this->og_image = ImageIgosja::resize($a_photo[0]->image_id, 290, 290);
         }
         $this->render('view', array('o_album' => $o_album, 'a_photo' => $a_photo, 'id' => $id));
     }
