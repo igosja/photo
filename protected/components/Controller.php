@@ -25,5 +25,14 @@ class Controller extends CController
         $this->seo_title = $model->seo_title;
         $this->seo_description = $model->seo_description;
         $this->seo_keywords = $model->seo_keywords;
+        if (empty($this->seo_title)) {
+            $this->seo_title = $model->name;
+        }
+        if (empty($this->seo_description)) {
+            $this->seo_description = $model->name;
+        }
+        if (empty($this->seo_keywords)) {
+            $this->seo_keywords = $model->name;
+        }
     }
 }
