@@ -10,7 +10,9 @@
                             '/include/share',
                             array(
                                 'url' => $this->createAbsoluteUrl('blog/view', array('id' => $item->url)),
-                                'image' => ImageIgosja::resize($item->image_id, 320, 320)
+                                'image' => ImageIgosja::resize($item->image_id, 320, 320),
+                                'title' => isset($item->seo_title) ? $item->seo_title : $item->name,
+                                'description' => isset($item->seo_description) ? $item->seo_description : $item->name,
                             )
                         ); ?>
                     </div>
