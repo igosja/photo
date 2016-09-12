@@ -849,6 +849,10 @@ nav {
     margin-bottom: 26px;
 }
 
+.price-item__text p {
+    color: #5a5859;
+}
+
 .price-item__price {
     padding-top: 27px;
     line-height: 1;
