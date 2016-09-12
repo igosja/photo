@@ -804,7 +804,7 @@ nav {
 .price-item {
     float: left;
     width: 380px;
-    height: 485px;
+    height: 535px;
     box-sizing: border-box;
     border: 1px solid #dcdddd;
     padding: 26px 29px 0;
@@ -840,12 +840,12 @@ nav {
 }
 
 .price-item__text {
-    height: 196px;
+    height: 246px;
     overflow: hidden;
     color: #5a5859;
     font-size: 14px;
     line-height: 22px;
-    text-align: center;
+    text-align: left;
     margin-bottom: 26px;
 }
 
