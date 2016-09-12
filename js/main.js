@@ -213,13 +213,13 @@ jQuery(document).ready(function ($) {
 });
 
 function slides() {
-    $('.slides').cycle({
+    $(document).find('.slides').cycle({
         fx:     'none',
         speed:   1,
         timeout: 1000
     }).cycle("pause");
 
-    $('.link').hover(function(){
+    $(document).find('.link').hover(function(){
         $(this).find('.slides').addClass('active').cycle('resume');
     }, function(){
         $(this).find('.slides').removeClass('active').cycle('pause');
