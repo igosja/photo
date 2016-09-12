@@ -12,7 +12,7 @@ class m160906_172507_admin extends CDbMigration
 
         $this->insert('admin', array(
             'username' => 'admin',
-            'password' => 'd82fab8155635f8238b7e8a63531df62',
+            'password' => '3679163934587a4abafd80a44d0e318a',
         ));
     }
 
