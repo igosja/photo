@@ -157,12 +157,20 @@ jQuery(document).ready(function ($) {
         closeEffect: 'none',
 
         beforeShow: function () {
-            //$('.fancybox-outer').append('<div class="blog-item__soc">
-            // <a href="" class="blog-item__soc__item blog-item__soc__item_fb"><span></span></a>
-            // <a href="" class="blog-item__soc__item blog-item__soc__item_ins"><span></span></a>
-            // <a href="" class="blog-item__soc__item blog-item__soc__item_vk"><span></span></a>
-            // <a href="" class="blog-item__soc__item blog-item__soc__item_pin"><span></span></a>
-            // </div>');
+            $('.fancybox-outer').append(
+                '<div class="blog-item__soc">' +
+                '<a href="https://www.facebook.com/sharer/sharer.php?u=' + window.location.href + '"' +
+                ' class="blog-item__soc__item blog-item__soc__item_fb" target="_blank"><span></span></a>' +
+                '<a href="https://pinterest.com/pin/create/button/?url=' + window.location.href +
+                '&description=' + $('meta[property="og:description"]').attr('content') + '&media=' + $('meta[property="og:image"]').attr('content') + '"' +
+                'class="blog-item__soc__item blog-item__soc__item_pin" target="_blank"><span></span></a>' +
+                '<a href="http://vk.com/share.php?url=' + window.location.href +
+                '&title=' + $('meta[property="og:title"]').attr('content') +
+                '&description=' + $('meta[property="og:description"]').attr('content') + '&image=' + $('meta[property="og:image"]').attr('content') + '"' +
+                ' class="blog-item__soc__item blog-item__soc__item_vk" target="_blank"><span></span></a>' +
+                '</div>'
+            )
+            ;
         },
         afterLoad: function () {
 
@@ -214,14 +222,14 @@ jQuery(document).ready(function ($) {
 
 function slides() {
     $('.slides').cycle({
-        fx:     'none',
-        speed:   1,
+        fx: 'none',
+        speed: 1,
         timeout: 1000
     }).cycle("pause");
 
-    $('.link').hover(function(){
+    $('.link').hover(function () {
         $(this).find('.slides').addClass('active').cycle('resume');
-    }, function(){
+    }, function () {
         $(this).find('.slides').removeClass('active').cycle('pause');
     });
 }
