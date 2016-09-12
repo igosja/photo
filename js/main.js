@@ -186,6 +186,7 @@ jQuery(document).ready(function ($) {
                     page++;
                     $('#album-more').data('page', page);
                 }
+                slides();
             }
         })
     });
@@ -203,20 +204,24 @@ jQuery(document).ready(function ($) {
                     page++;
                     $('#photo-more').data('page', page);
                 }
+                slides();
             }
         })
     });
 
+    slides();
+});
+
+function slides() {
     $('.slides').cycle({
         fx:     'none',
         speed:   1,
         timeout: 1000
     }).cycle("pause");
 
-    // Pause &amp; play on hover
     $('.link').hover(function(){
         $(this).find('.slides').addClass('active').cycle('resume');
     }, function(){
         $(this).find('.slides').removeClass('active').cycle('pause');
     });
-});
+}
