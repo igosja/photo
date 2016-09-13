@@ -33,7 +33,7 @@
                             <?= CHtml::link(
                                 '<i class="fa fa-trash"></i>',
                                 array('delete', 'id' => $item->id),
-                                array('class' => 'btn btn-default')
+                                array('class' => 'btn btn-default', 'onClick'=>'return confirm("Вы уверены?");')
                             ); ?>
                         </td>
                     </tr>

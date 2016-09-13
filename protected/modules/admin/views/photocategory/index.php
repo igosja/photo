@@ -29,7 +29,6 @@
                                 array('status', 'id' => $item->id),
                                 array('class' => 'btn btn-circle btn-' . ((0 == $item->status) ? 'danger' : 'success'))
                             ); ?>
-                            </a>
                         </td>
                         <td class="text-center">
                             <?= CHtml::link(
@@ -45,7 +44,7 @@
                             <?= CHtml::link(
                                 '<i class="fa fa-trash"></i>',
                                 array('delete', 'id' => $item->id),
-                                array('class' => 'btn btn-default')
+                                array('class' => 'btn btn-default', 'onClick'=>'return confirm("Вы уверены?");')
                             ); ?>
                         </td>
                     </tr>

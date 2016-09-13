@@ -20,7 +20,7 @@
             </tr>
             <tr>
                 <td><?= $model->getAttributeLabel('photocategory_id'); ?></td>
-                <td><?= $model->category->name; ?></td>
+                <td><?= isset($item->category->name) ? $item->category->name : ''; ?></td>
             </tr>
             <tr>
                 <td><?= $model->getAttributeLabel('url'); ?></td>

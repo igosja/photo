@@ -26,7 +26,6 @@
                                 array('status', 'id' => $item->id),
                                 array('class' => 'btn btn-circle btn-' . ((0 == $item->status) ? 'danger' : 'success'))
                             ); ?>
-                            </a>
                         </td>
                         <td class="text-center">
                             <?= CHtml::link(

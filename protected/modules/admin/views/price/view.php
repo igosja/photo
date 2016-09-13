@@ -27,7 +27,7 @@
                     Категория
                 </td>
                 <td>
-                    <?= $model->category->name; ?>
+                    <?= isset($model->category->name) ? $model->category->name : ''; ?>
                 </td>
             </tr>
             <tr>

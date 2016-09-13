@@ -36,7 +36,6 @@
                     <?= $form->urlField($model, 'url', array('class' => 'form-control')); ?>
                     <?= $form->error($model, 'url'); ?>
                 </td>
-                </td>
             </tr>
         </table>
         <p class="text-center">

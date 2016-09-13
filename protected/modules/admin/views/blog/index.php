@@ -8,6 +8,7 @@
         </ul>
     </div>
 </div>
+<form>
 <div class="row">
     <div class="col-lg-12">
         <div class="dataTable_wrapper">
@@ -21,7 +22,6 @@
                 </tr>
                 </thead>
                 <tbody>
-                <form>
                     <tr>
                         <td>
                             <input
@@ -33,7 +33,6 @@
                         <td></td>
                         <td colspan="2"><input type="submit" class="form-control" value="Искать"/></td>
                     </tr>
-                </form>
                 <?php foreach ($model as $item) { ?>
                     <tr>
                         <td><?= $item->name; ?></td>
@@ -44,7 +43,6 @@
                                 array('status', 'id' => $item->id),
                                 array('class' => 'btn btn-circle btn-' . ((0 == $item->status) ? 'danger' : 'success'))
                             ); ?>
-                            </a>
                         </td>
                         <td class="text-center">
                             <?= CHtml::link(
@@ -60,7 +58,7 @@
                             <?= CHtml::link(
                                 '<i class="fa fa-trash"></i>',
                                 array('delete', 'id' => $item->id),
-                                array('class' => 'btn btn-default')
+                                array('class' => 'btn btn-default', 'onClick'=>'return confirm("Вы уверены?");')
                             ); ?>
                         </td>
                     </tr>
@@ -71,3 +69,4 @@
         </div>
     </div>
 </div>
+</form>

@@ -52,7 +52,6 @@ class PhotocategoryController extends AController
     {
         $model = $this->getModel()->findByPk($id);
         $model->deleteByPk($id);
-        Price::model()->deleteAllByAttributes(array('pricecategory' => $id));
         $this->redirect(array('index'));
     }
 
