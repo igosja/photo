@@ -30,9 +30,9 @@ return array(
         ),
 
         'db' => array(
-            'connectionString' => 'mysql:host=localhost;dbname=igosja_photo',
+            'connectionString' => 'mysql:host=localhost;dbname=plakhotn_photo',
             'emulatePrepare' => true,
-            'username' => 'igosja_photo',
+            'username' => 'plakhotn_photo',
             'password' => '?aVq56*m',
             'charset' => 'utf8',
         ),
