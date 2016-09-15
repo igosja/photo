@@ -22,7 +22,7 @@ return array(
                 'contacts' => 'contacts/index',
                 'price' => 'price/index',
                 'portfolio' => 'portfolio/index',
-                'portfolio/category/<id>' => 'portfolio/index',
+                'portfolio/index/<id>' => 'portfolio/index',
                 'portfolio/<id>' => 'portfolio/view',
                 '<controller>/<action>/<id>' => '<controller>/<action>',
                 '<controller>/<action>' => '<controller>/<action>',
