@@ -43,10 +43,10 @@ class SiteController extends Controller
             $mail->setSubject('Новый заказ на сайте plakhotna.com.ua');
             $mail->setHtml('Вы получили новый заказ<br/>
                             Услуга - ' . $o_price->category->name . ', ' . $o_price->name . '<br/>
-                            Имя клиента - ' . $data->name . '<br/>
-                            Телефон - ' . $data->tel . '<br/>
-                            Email - ' . $data->email . '<br/>
-                            Комментарий к заказу - ' . $data->text);
+                            Имя клиента - ' . $data['name'] . '<br/>
+                            Телефон - ' . $data['tel'] . '<br/>
+                            Email - ' . $data['email'] . '<br/>
+                            Комментарий к заказу - ' . $data['text']);
             $mail->send();
         }
     }
