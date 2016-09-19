@@ -34,6 +34,20 @@ class SiteController extends Controller
             $o_order->attributes = $data;
             $o_order->price = $o_price->category->name . ', ' . $o_price->name;
             $o_order->save();
+
+            $mail = new Mail();
+            $mail->setFrom('noreply@plakhotna.com.ua');
+            $mail->setFromName('Заказ');
+            $mail->setTo($this->contacts->email);
+            $mail->setTo('igosja@ukr.net');
+            $mail->setSubject('Новый заказ на сайте plakhotna.com.ua');
+            $mail->setHtml('Вы получили новый заказ<br/>
+                            Услуга - ' . $o_price->category->name . ', ' . $o_price->name . '<br/>
+                            Имя клиента - ' . $data->name . '<br/>
+                            Телефон - ' . $data->tel . '<br/>
+                            Email - ' . $data->email . '<br/>
+                            Комментарий к заказу - ' . $data->text);
+            $mail->send();
         }
     }
 
