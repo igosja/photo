@@ -21,6 +21,8 @@ return array(
                 'blog/<id>' => 'blog/view',
                 'contacts' => 'contacts/index',
                 'price' => 'price/index',
+                'portfolio/ajaxindex' => 'portfolio/ajaxindex',
+                'portfolio/ajaxview' => 'portfolio/ajaxview',
                 'portfolio/category/<id>' => 'portfolio/index',
                 'portfolio/<id>' => 'portfolio/view',
                 'portfolio' => 'portfolio/index',
