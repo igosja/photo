@@ -91,9 +91,11 @@
                     </td>
                     <td class="col-lg-6">
                         <div class="col-lg-6">
-                            <a href="javascript:;" class="thumbnail">
-                                <img src="<?= $item->image->url; ?>"/>
-                            </a>
+                            <?php if (isset($item->image->url)) { ?>
+                                <a href="javascript:;" class="thumbnail">
+                                    <img src="<?= $item->image->url; ?>"/>
+                                </a>
+                            <?php } ?>
                         </div>
                         <?= CHtml::link('<i class="fa fa-times"></i>', array('image', 'id' => $item->id)); ?>
                     </td>
