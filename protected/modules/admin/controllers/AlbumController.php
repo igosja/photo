@@ -69,10 +69,12 @@ class AlbumController extends AController
         foreach ($a_photo as $item) {
             Photo::model()->deleteByPk($item->id);
             $o_image = Image::model()->findByPk($item->image_id);
-            if (file_exists($_SERVER['DOCUMENT_ROOT'] . $o_image->url)) {
-                unlink($_SERVER['DOCUMENT_ROOT'] . $o_image->url);
+            if (isset($o_image->url)) {
+                if (file_exists($_SERVER['DOCUMENT_ROOT'] . $o_image->url)) {
+                    unlink($_SERVER['DOCUMENT_ROOT'] . $o_image->url);
+                }
+                $o_image->delete();
             }
-            $o_image->delete();
         }
         $this->getModel()->deleteByPk($id);
         $this->redirect(array('index'));
@@ -88,7 +90,7 @@ class AlbumController extends AController
         }
         Photo::model()->deleteByPk($id);
         $o_image = Image::model()->findByPk($photo->image_id);
-        if (file_exists($_SERVER['DOCUMENT_ROOT'] . $o_image->url)) {
+        if (isset($o_image->url) && file_exists($_SERVER['DOCUMENT_ROOT'] . $o_image->url)) {
             unlink($_SERVER['DOCUMENT_ROOT'] . $o_image->url);
         }
         Image::model()->deleteByPk($id);
