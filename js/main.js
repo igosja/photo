@@ -200,21 +200,12 @@ jQuery(document).ready(function ($) {
     });
 
     $('#photo-more').on('click', function () {
-        var id = $(this).data('id');
         var page = $(this).data('page');
-        $.ajax({
-            url: '/portfolio/ajaxview/' + id + '?page=' + page,
-            success: function (data) {
-                if ('' == data) {
-                    $('#photo-more').remove();
-                } else {
-                    $('#inner').append(data);
-                    page++;
-                    $('#photo-more').data('page', page);
-                }
-                slides();
-            }
-        })
+        for (var i = page; i <= page * 9; i++) {
+            $('#photo-item-' + i).show();
+        }
+        page++;
+        $(this).data('page', page);
     });
 
     slides();

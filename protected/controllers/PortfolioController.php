@@ -34,7 +34,7 @@ class PortfolioController extends Controller
         $this->setSEO($o_album);
         $a_photo = Photo::model()->findAllByAttributes(
             array('album_id' => $o_album->id, 'status' => 1),
-            array('order' => '`order`', 'limit' => 9)
+            array('order' => '`order`')
         );
         $this->breadcrumbs[] = array('url' => 'index/index', 'text' => 'Главная');
         $this->breadcrumbs[] = array('url' => 'portfolio/index', 'text' => 'Портфолио');
@@ -70,18 +70,5 @@ class PortfolioController extends Controller
         );
         $this->layout = 'empty';
         $this->render('ajaxindex', array('a_album' => $a_album));
-    }
-
-    public function actionAjaxview($id)
-    {
-        $page = (int)Yii::app()->request->getQuery('page');
-        $offset = $page * 9;
-        $o_album = Album::model()->findByAttributes(array('url' => $id));
-        $a_photo = Photo::model()->findAllByAttributes(
-            array('album_id' => $o_album->id, 'status' => 1),
-            array('order' => '`order`', 'limit' => 9, 'offset' => $offset)
-        );
-        $this->layout = 'empty';
-        $this->render('ajaxview', array('a_photo' => $a_photo));
     }
 }
