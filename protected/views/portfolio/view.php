@@ -4,7 +4,7 @@
         <h1 class="m-title"><span><?= $o_album->category->name; ?></span> <?= $o_album->name; ?></h1>
         <div class="albom-b clearfix" id="inner">
             <?php for ($i=0, $count_photo = count($a_photo); $i<$count_photo; $i++) { ?>
-                <div class="albom-b__item" <?php if (9 >= $i) { ?>style="display: none;"<?php } ?> id="photo-item-<?= $i; ?>">
+                <div class="albom-b__item" <?php if (9 < $i) { ?>style="display: none;"<?php } ?> id="photo-item-<?= $i; ?>">
                     <a
                         href="<?= (isset($a_photo[$i]->image->url) ? $a_photo[$i]->image->url : 'javascript:;'); ?>"
                         class="fancybox"
