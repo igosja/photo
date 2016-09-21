@@ -201,7 +201,7 @@ jQuery(document).ready(function ($) {
 
     $('#photo-more').on('click', function () {
         var page = $(this).data('page');
-        for (var i = page * 9; i <= (page + 1) * 9; i++) {
+        for (var i = page * 9; i < (page + 1) * 9; i++) {
             $('#photo-item-' + i).show();
         }
         page++;
