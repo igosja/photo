@@ -90,8 +90,10 @@ class AlbumController extends AController
         }
         Photo::model()->deleteByPk($id);
         $o_image = Image::model()->findByPk($photo->image_id);
-        if (isset($o_image->url) && file_exists($_SERVER['DOCUMENT_ROOT'] . $o_image->url)) {
-            unlink($_SERVER['DOCUMENT_ROOT'] . $o_image->url);
+        if (isset($o_image->url)) {
+            if (isset($o_image->url) && file_exists($_SERVER['DOCUMENT_ROOT'] . $o_image->url)) {
+                unlink($_SERVER['DOCUMENT_ROOT'] . $o_image->url);
+            }
         }
         Image::model()->deleteByPk($id);
         $this->redirect($_SERVER['HTTP_REFERER']);

@@ -27,10 +27,12 @@ class SlideController extends AController
             throw new CHttpException(404, 'Страница не найдена.');
         }
         $o_image = Image::model()->findByPk($model->image_id);
-        if (file_exists($_SERVER['DOCUMENT_ROOT'] . $o_image->url)) {
-            unlink($_SERVER['DOCUMENT_ROOT'] . $o_image->url);
+        if (isset($o_image->url)) {
+            if (file_exists($_SERVER['DOCUMENT_ROOT'] . $o_image->url)) {
+                unlink($_SERVER['DOCUMENT_ROOT'] . $o_image->url);
+            }
+            $o_image->delete();
         }
-        $o_image->delete();
         $this->getModel()->deleteByPk($id);
         $this->redirect(array('index'));
     }

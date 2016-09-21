@@ -32,8 +32,10 @@ class ContactsController extends AController
             $this->redirect(array('index'));
             exit;
         }
-        if (file_exists($_SERVER['DOCUMENT_ROOT'] . $o_image->url)) {
-            unlink($_SERVER['DOCUMENT_ROOT'] . $o_image->url);
+        if (isset($o_image->url)) {
+            if (file_exists($_SERVER['DOCUMENT_ROOT'] . $o_image->url)) {
+                unlink($_SERVER['DOCUMENT_ROOT'] . $o_image->url);
+            }
         }
         Image::model()->deleteByPk($id);
         $this->redirect(array('index'));

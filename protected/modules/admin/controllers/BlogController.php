@@ -79,10 +79,12 @@ class BlogController extends AController
         $model->deleteByPk($id);
         if (0 < $model->image_id) {
             $o_image = Image::model()->findByPk($model->image_id);
-            if (file_exists($_SERVER['DOCUMENT_ROOT'] . $o_image->url)) {
-                unlink($_SERVER['DOCUMENT_ROOT'] . $o_image->url);
+            if (isset($o_image->url)) {
+                if (file_exists($_SERVER['DOCUMENT_ROOT'] . $o_image->url)) {
+                    unlink($_SERVER['DOCUMENT_ROOT'] . $o_image->url);
+                }
+                $o_image->delete();
             }
-            $o_image->delete();
         }
         $this->redirect(array('index'));
     }
@@ -90,10 +92,12 @@ class BlogController extends AController
     public function actionImage($id)
     {
         $o_image = Image::model()->findByPk($id);
-        if (file_exists($_SERVER['DOCUMENT_ROOT'] . $o_image->url)) {
-            unlink($_SERVER['DOCUMENT_ROOT'] . $o_image->url);
+        if (isset($o_image->url)) {
+            if (file_exists($_SERVER['DOCUMENT_ROOT'] . $o_image->url)) {
+                unlink($_SERVER['DOCUMENT_ROOT'] . $o_image->url);
+            }
+            $o_image->delete();
         }
-        $o_image->delete();
         $this->redirect($_SERVER['HTTP_REFERER']);
     }
 
