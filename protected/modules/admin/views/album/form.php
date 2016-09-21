@@ -79,28 +79,37 @@
             </thead>
             <tbody>
             <?php foreach ($model->photo as $item) { ?>
-                <tr class="sorter" data-id="<?= $item->id; ?>" data-controller="admin/photo"
-                    data-album="<?= $model->id; ?>">
+                <tr
+                    class="sorter"
+                    data-album="<?= $model->id; ?>"
+                    data-id="<?= $item->id; ?>"
+                    data-controller="admin/photo"
+                >
                     <td>
                         <input
-                            type="radio"
                             name="photo-main"
+                            type="radio"
                             value="<?= $item->id; ?>"
                             <?php if (1 == $item->main) { ?>checked<?php } ?>
                         >
                     </td>
                     <td class="col-lg-6">
-                        <div class="col-lg-6">
-                            <?php if (isset($item->image->url)) { ?>
+                        <?php if (isset($item->image->url)) { ?>
+                            <div class="col-lg-6">
                                 <a href="javascript:;" class="thumbnail">
                                     <img src="<?= $item->image->url; ?>"/>
                                 </a>
-                            <?php } ?>
-                        </div>
+                            </div>
+                        <?php } ?>
                         <?= CHtml::link('<i class="fa fa-times"></i>', array('image', 'id' => $item->id)); ?>
                     </td>
                     <td>
-                        <input type="text" value="<?= $item->alt; ?>" name="alt[<?= $item->id; ?>]" class="form-control">
+                        <input
+                            class="form-control"
+                            name="alt[<?= $item->id; ?>]"
+                            type="text"
+                            value="<?= $item->alt; ?>"
+                        >
                     </td>
                 </tr>
             <?php } ?>

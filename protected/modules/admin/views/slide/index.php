@@ -23,11 +23,13 @@
                 <?php foreach ($model as $item) { ?>
                     <tr class="sorter" data-id="<?= $item->id; ?>" data-controller="<?= $this->uniqueid; ?>">
                         <td>
-                            <div class="col-lg-6">
-                                <a href="javascript:;" class="thumbnail">
-                                    <img src="<?= $item->image->url; ?>"/>
-                                </a>
-                            </div>
+                            <?php if (isset($item->image->url)) { ?>
+                                <div class="col-lg-6">
+                                    <a href="javascript:;" class="thumbnail">
+                                        <img src="<?= $item->image->url; ?>"/>
+                                    </a>
+                                </div>
+                            <?php } ?>
                         </td>
                         <td class="text-center">
                             <?= CHtml::link(
@@ -40,7 +42,7 @@
                             <?= CHtml::link(
                                 '<i class="fa fa-trash"></i>',
                                 array('delete', 'id' => $item->id),
-                                array('class' => 'btn btn-default', 'onClick'=>'return confirm("Вы уверены?");')
+                                array('class' => 'btn btn-default', 'onClick' => 'return confirm("Вы уверены?");')
                             ); ?>
                         </td>
                     </tr>
