@@ -204,7 +204,7 @@ jQuery(document).ready(function ($) {
         for (var i = page * 9; i < (page + 1) * 9; i++) {
             $('#photo-item-' + i).show();
         }
-        if ($('#photo-item-' + (i++)).length) {
+        if (!$('#photo-item-' + (i++)).length) {
             $(this).remove();
         }
         page++;
