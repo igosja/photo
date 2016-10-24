@@ -13,6 +13,14 @@
         <table class="table">
             <tr>
                 <td class="col-lg-4">
+                    Заголовок
+                </td>
+                <td>
+                    <?= $model->title; ?>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-lg-4">
                     Текст
                 </td>
                 <td>
