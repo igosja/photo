@@ -26,6 +26,7 @@ return array(
                 'portfolio/category/<id>' => 'portfolio/index',
                 'portfolio/<id>' => 'portfolio/view',
                 'portfolio' => 'portfolio/index',
+                'photo/<id>' => 'photo/view',
                 '<controller>/<action>/<id>' => '<controller>/<action>',
                 '<controller>/<action>' => '<controller>/<action>',
                 '<controller>' => '<controller>/index',
@@ -33,9 +34,6 @@ return array(
                 '<module>/<controller>/<action>' => '<module>/<controller>/<action>',
                 '<module>/<controller>' => '<module>/<controller>',
                 '<module>' => '<module>/index',
-                'gii' => 'gii',
-                'gii/<controller:\w+>' => 'gii/<controller>',
-                'gii/<controller:\w+>/<action:\w+>' => 'gii/<controller>/<action>',
             ),
         ),
 

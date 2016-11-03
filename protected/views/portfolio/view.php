@@ -19,7 +19,7 @@
                         <?= $this->renderPartial(
                             '/include/share',
                             array(
-                                'url' => $this->createAbsoluteUrl('portfolio/view', array('id' => $a_photo[$i]->album->url)),
+                                'url' => $this->createAbsoluteUrl('photo/view', array('id' => $a_photo[$i]->id)),
                                 'image' => ImageIgosja::resize($a_photo[$i]->image_id, 320, 320)
                             )
                         ); ?>
