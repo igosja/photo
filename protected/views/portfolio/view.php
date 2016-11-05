@@ -8,9 +8,10 @@
                     <a
                         href="<?= (isset($a_photo[$i]->image->url) ? $a_photo[$i]->image->url : 'javascript:;'); ?>"
                         class="fancybox"
-                        data-fb="fb-<?= $a_photo[$i]->id; ?>"
-                        data-pin="pin-<?= $a_photo[$i]->id; ?>"
-                        data-vk="vk-<?= $a_photo[$i]->id; ?>"
+                        data-fb="<?= $this->createAbsoluteUrl('photo/view', array('id' => $a_photo[$i]->id)); ?>"
+                        data-pin="<?= $this->createAbsoluteUrl('photo/view', array('id' => $a_photo[$i]->id)); ?>"
+                        data-image="<?= ImageIgosja::resize($a_photo[$i]->image_id, 320, 320); ?>"
+                        data-vk="<?= $this->createAbsoluteUrl('photo/view', array('id' => $a_photo[$i]->id)); ?>"
                         rel="show-gallery"
                     >
                         <img src="<?= ImageIgosja::resize($a_photo[$i]->image_id, 390, 390); ?>" alt="<?= $a_photo[$i]->alt; ?>">

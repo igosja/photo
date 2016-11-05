@@ -159,18 +159,20 @@ jQuery(document).ready(function ($) {
         beforeShow: function () {
             $('.fancybox-outer').append(
                 '<div class="blog-item__soc">' +
-                '<a href="https://www.facebook.com/sharer/sharer.php?u=' + window.location.href + '"' +
+                '<a href="https://www.facebook.com/sharer/sharer.php?u=' + $(this.element).data('fb') + '"' +
                 ' class="blog-item__soc__item blog-item__soc__item_fb" target="_blank"><span></span></a>' +
-                '<a href="https://pinterest.com/pin/create/button/?url=' + window.location.href +
-                '&description=' + $('meta[property="og:description"]').attr('content') + '&media=' + $('meta[property="og:image"]').attr('content') + '"' +
+                '<a href="https://pinterest.com/pin/create/button/?url=' + $(this.element).data('pin') +
+                '&description=' + $('meta[property="og:description"]').attr('content') +
+                '&media=http://' + window.location.hostname + $(this.element).data('image') + '"' +
                 'class="blog-item__soc__item blog-item__soc__item_pin" target="_blank"><span></span></a>' +
-                '<a href="http://vk.com/share.php?url=' + window.location.href +
+                '<a href="http://vk.com/share.php?url=' + $(this.element).data('vk') +
                 '&title=' + $('meta[property="og:title"]').attr('content') +
-                '&description=' + $('meta[property="og:description"]').attr('content') + '&image=' + $('meta[property="og:image"]').attr('content') + '"' +
+                '&description=' + $('meta[property="og:description"]').attr('content') +
+                '&image=http://' + window.location.hostname + $(this.element).data('image') + '"' +
                 ' class="blog-item__soc__item blog-item__soc__item_vk" target="_blank"><span></span></a>' +
                 '</div>'
-            )
-            ;
+            );
+            console.log($(this.element).data('fb'));
         },
         afterLoad: function () {
 
