@@ -104,7 +104,7 @@
     <div class="form-overlay"></div>
     <div class="wrap">
         <div class="of-form form-order clearfix">
-            <a href="javascript:;" class="of-close"></a href="">
+            <a href="javascript:;" class="of-close"></a>
             <form>
                 <div class="of-form__title">Заказать фотосессию</div>
                 <div class="of-wrap clearfix">
