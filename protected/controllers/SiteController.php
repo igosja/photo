@@ -56,6 +56,18 @@ class SiteController extends Controller
             $o_ask = new Ask();
             $o_ask->attributes = $data;
             $o_ask->save();
+
+            $mail = new Mail();
+            $mail->setFrom('noreply@plakhotna.com.ua');
+            $mail->setFromName('Вопрос');
+            $mail->setTo($this->contacts->email);
+            $mail->setSubject('Новый вопрос на сайте plakhotna.com.ua');
+            $mail->setHtml('Вы получили новый вопрос через форму "Пишите мне!"<br/>
+                            Имя клиента - ' . $data['name'] . '<br/>
+                            Телефон - ' . $data['tel'] . '<br/>
+                            Email - ' . $data['email'] . '<br/>
+                            Сообщение - ' . $data['text']);
+            $mail->send();
         }
     }
 }
